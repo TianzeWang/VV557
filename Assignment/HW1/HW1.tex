@@ -24,7 +24,7 @@
 \newfontfamily\Inputmono{Consolas}
 \renewcommand\thesection{Exercise 1.\ \arabic{section}}%\arabic{section}}
 \renewcommand\thesubsection{\roman{subsection}).}
-\renewcommand\thesubsubsection{\arabic{subsubsection}.}
+\renewcommand\thesubsubsection{\roman{subsection}).\alph{subsubsection}.}
 \newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 \newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
@@ -119,9 +119,9 @@
 \end{Large}
 \vspace*{0.5cm}
 \begin{large}
-\sc{{Xu, Yisu \ \ 118370910021}} \\
 \sc{{Sui, Zijian\ \ 515370910038}} \\
 \sc{{Wang, Tianze\ \ 515370910202}} \\
+\sc{{Xu, Yisu \ \ 118370910021}} \\
 \end{large}
 \end{center}
 \newpage
@@ -134,28 +134,233 @@
 \section{}
 \subsection{}
 \normalsize
+% For the intervals on 
+% \[
+% 	0 \leq x \leq \xi - \frac{1}{2n}\  \cup\ \xi + \frac{1}{2n} \leq x \leq 1
+% \]
+% the equation is given as 
+% \[
+% 	- u'' = 0, \ \ u(0) = u(1) = 0
+% \]
+% And this is the same as the case on lecture slide pp. 24, obviously the solution is given as 
+% \[
+% 	g(x,\xi) = \left\{
+% 	\begin{aligned}
+% 	&(1- \xi) \cdot  x \hspace*{1em} &0 \leq x \leq \xi - \frac{1}{2n} \\
+% 	&\xi \cdot  (1-x) & \xi + \frac{1}{2n} \leq x \leq 1
+% 	\end{aligned}
+% 	\right.
+% \]
+% Next we need to discuss about the case about
+% \[
+% 	f_n(x; \xi) = n \ \ \ \text{for} \ \ \xi - \frac{1}{2n} \leq x \leq \xi + \frac{1}{2n}
+% \]
+% Thus $u_n$ will be in the form of 
+% \[
+% 	u_n'' = -n \ \Rightarrow \ u_n = -\frac{n\cdot x^2}{2}+ a\cdot x+ b
+% \]
+% Since $u_n$ should satisfy the continuity condition for its original form and first derivative, 
+% \[
+	
+% \]
 For the intervals on 
 \[
 	0 \leq x \leq \xi - \frac{1}{2n}\  \cup\ \xi + \frac{1}{2n} \leq x \leq 1
 \]
-the equation is given as 
+We have 
 \[
-	- u'' = 0, \ \ u(0) = u(1) = 0
+	u_n(x)'' = 0 \Rightarrow \left\{\begin{aligned}
+	&u_{n1}(x) = x^2+ a\cdot x+ b\ \  & 0 \leq x \leq \xi - \frac{1}{2n} \\\
+ 	&u_{n2}(x) = x^2+ c\cdot x+ d & \xi + \frac{1}{2n} \leq x \leq 1
+	\end{aligned}\right.
 \]
-And this is the same as the case on lecture slide pp. 24, obviously the solution is given as 
+For the intervals on 
 \[
-	g(x,\xi) = \left\{
+	\xi - \frac{1}{2n} \leq x \leq \xi + \frac{1}{2n}
+\]
+The function is given as
+\[
+	u_{n3}(x)'' = -n \Rightarrow u_{n3}(x) = -\frac{n\cdot x^2}{2}+ \alpha\cdot x+ \beta
+\]
+For $u_{n1}, u_{n2}, u_{n3}$, they should satisfy
+\[	\left\{
 	\begin{aligned}
-	&(1- \xi) \cdot  x \hspace*{1em} &0 \leq x \leq \xi - \frac{1}{2n} \\
+	&u_{n1}(\xi- \frac{1}{2n}) = u_{n3} (\xi - \frac{1}{2n})\\
+	&u_{n2}(\xi+ \frac{1}{2n}) = u_{n3} (\xi + \frac{1}{2n})\\
+	&\underset{x\rightarrow \xi- \frac{1}{2n}^-}{lim} u_{n1}'(x) =  \underset{x\rightarrow \xi- \frac{1}{2n}^+}{lim} u_{n3}'(x)\\
+	&\underset{x\rightarrow \xi+ \frac{1}{2n}^-}{lim} u_{n3}'(x) =  \underset{x\rightarrow \xi+ \frac{1}{2n}^+}{lim} u_{n2}'(x)\\
+	\end{aligned}
+	\right.
+\]
+This will give a linear equation set (four equations) with four variables. ($a=0,d=0$)
+And the final result will be then the solution provided:
+\[
+	u_n(x) = \left\{
+	\begin{aligned}
+	&(1- \xi) \cdot  x  & 0 \leq x \leq \xi - \frac{1}{2n} \\
+	&(1- \xi) \cdot x - \frac{n}{2}(x- \xi+1/(2n))^2  & \xi - \frac{1}{2n} < x < \xi + \frac{1}{2n} \\
 	&\xi \cdot  (1-x) & \xi + \frac{1}{2n} \leq x \leq 1
 	\end{aligned}
 	\right.
 \]
-Next we need to discuss about the case about
+\subsection{}
+% According to the definition of pointwise convergence, we need to prove
+% \[
+% \begin{aligned}
+% 	\underset{n\rightarrow \infty}{lim} |u_n(x) - g(x,\xi)| = 0
+% \end{aligned}
+% \]
+As $n\rightarrow \infty$, 
 \[
-	f_n(x; \xi) = n \ \ \ \text{for} \ \ \xi - \frac{1}{2n} \leq x \leq \xi + \frac{1}{2n}
+	\xi - \frac{1}{2n} = \xi =  \xi + \frac{1}{2n}
 \]
+And the term $$(1- \xi) \cdot x - \frac{n}{2}(x- \xi+1/(2n))^2  x  $$ is canceled as $n \rightarrow \infty$, then
+\[
+	\underset{n\rightarrow \infty}{lim} u_n(x) = \left\{\begin{aligned}
+	&(1- \xi) x \ \ & 0 \leq x \leq \xi \\
+	&\xi (1-x) & \xi \leq x \leq 1
+\end{aligned}\right.
+\]
+Then since $\underset{n\rightarrow \infty}{lim} u_n(x) = g(x; \xi)$, it's sufficient to say
+\[
+\begin{aligned}
+	\underset{n\rightarrow \infty}{lim} |u_n(x) - g(x,\xi)| = 0
+\end{aligned}
+\]
+\qedhere
+
+\subsection{}
+No, it's not uniform convergence.
+The definition of uniform convergence is 
+\[
+	\forall \varepsilon>0,\ \ \exists N_0\in N,\ \ \forall n > N_0,\ \  |f_n(x)-f(x)|<\varepsilon 
+\]
+Obviously, the convergence is uniform on $0 \leq x \leq \xi - \frac{1}{2n}$ and $\xi + \frac{1}{2n} \leq x \leq 1$. Since $u_n(x) = g(x;\xi)$ on these two intervals.\\ \\  
+Next we will prove on $\xi - \frac{1}{2n} < x < \xi + \frac{1}{2n}$, it's not uniform convergence. We choose $\varepsilon = \varepsilon_0 < 1/4$, and we consider the interval on $[\xi, \xi + \frac{1}{2n} )$.
+\[
+	\begin{aligned}
+	|u_n(x) - g(x;\xi)| &= |(1- \xi) \cdot x - \frac{n}{2}(x- \xi+1/(2n))^2 - (1-x)\xi | \\
+	&= |t - \frac{n}{2}(t+\frac{1}{2n})^2| \ \ \ , t\leftarrow (x - \xi)
+	\end{aligned}
+\]
+Since $\forall x$ on the interval,
+\[
+	|u_n(x) - g(x;\xi)| < \varepsilon_0
+\]
+However, we evaluate $x = \xi + \frac{1}{2n} - \varepsilon_1$
+\[
+	|u_n(x) - g(x;\xi)| = |\frac{1-n}{2n}| \rightarrow \frac{1}{2} > \varepsilon_0
+\]
+which means it is not uniform convergence.
+\section{}
+\subsection{}
+We first test whether $T$ is a linear functional.
+\[
+	T(\lambda \varphi_1 + \mu \varphi_2) = \lambda \varphi_1(-10) + \lambda \varphi_2(-10) = \lambda T \varphi_1+ \mu T \varphi_2
+\]
+It's linear. Then we test its continuity
+\[
+	\varphi_m \rightarrow 0, \ |T \varphi_m| = |\varphi_m(-10)| \leq |\sup  \varphi_m(x)| = 0 
+\]
+So we can conclude \textbf{it's a distribution}.
+\subsection{}
+We first test whether $T$ is a linear functional.
+\[
+\begin{aligned}
+	T(\lambda \varphi_1 + \mu \varphi_2) &= [\lambda \varphi_1(0) + \mu \varphi_2(0)]^2 \\
+	& = \lambda^2 \varphi_1^2(0) + \mu^2 \varphi_2^2(0)+ 2 \lambda \mu \varphi_1(0) \varphi_2 (0) \\
+	& \neq \lambda \varphi_1^2(0) + \mu \varphi_2^2(0) 
+\end{aligned}
+\]
+So 
+\[
+	T(\lambda \varphi_1 + \mu \varphi_2) \neq \lambda T \varphi_1+ \mu T \varphi_2
+\]
+which means \textbf{it's not a distribution}.
+\subsection{}
+Obviously, $T$ maps to $\mathbb{C}^n$ instead of $\mathbb{C}$, so it's not a linear functional, thus \textbf{it's not a distribution}.
+\newpage
+\subsection{}
+We first test whether $T$ is a linear functional.
+\[
+\begin{aligned}
+	T(\lambda \varphi_1 + \mu \varphi_2) &=  \lambda \varphi_1(0)+ \mu \varphi_2(0) + \lambda \varphi_1(1)+ \mu \varphi_2(1) + \lambda \varphi_1(2)+ \mu \varphi_2(2) + ... \\
+	& = \lambda (\varphi_1(0) + \varphi_1(1)+ \varphi_1(2) + ...) + \mu(\varphi_2(0) + \varphi_2(1)+ \varphi_2(2) + ...) \\
+	& = \lambda T \varphi_1+ \mu T \varphi_2
+\end{aligned}
+\]
+It's linear. Then we test its continuity
+\begin{align*}
+\varphi_m \rightarrow 0, \ \ |T \varphi_m| = |\phi_m(0)+ \phi_m(1)+ \phi_m(2)+ ...| \leq 0+0+0+...+0 = 0
+\end{align*}
+So we can conclude \textbf{it's a distribution}.
+\subsection{}
+We first test whether $T$ is a linear functional.
+\begin{align*}
+T(\lambda \varphi_1 + \mu \varphi_2) &= \int_{S^{n-1}} (\lambda \varphi_1 + \mu \varphi_2) \\
+	&= \int_{S^{n-1}} \lambda \varphi_1 +\int_{S^{n-1}}  \mu \varphi_2 \\
+	&= \lambda T \varphi_1+ \mu T \varphi_2
+\end{align*}
+It's linear. Then we test its continuity
+\begin{align*}
+\varphi_m \rightarrow 0, \ \ |T \varphi_m| = |\int_{S^{n-1}}  \varphi_m| \leq \sup|\varphi_m| = 0
+\end{align*}
+So we can conclude \textbf{it's a distribution}.
+\subsection{}
+\subsubsection{}
+We first test whether $T$ is a linear functional.
+\begin{align*}
+T(\lambda \varphi_1 + \mu \varphi_2) &= \int \frac{\lambda \varphi_1 + \mu \varphi_2}{x} \\
+	&= \int \frac{\lambda \varphi_1}{x} + \int \frac{\mu \varphi_2}{x} \\
+	&= \lambda T \varphi_1+ \mu T \varphi_2
+\end{align*}
+It's linear. Then we test its continuity
+\begin{align*}
+\varphi_m \rightarrow 0, \ \ |T \varphi_m| & = |\int \frac{1}{x}  \varphi_m dx| \\
+&= |\left.\ln(x) \varphi_m(x)\right| _{-\infty}^{+ \infty} - \int \ln|x| \varphi'(x) dx| \\
+&= \int \ln|x| \varphi'(x) dx
+\end{align*}
+As $m \rightarrow \infty$, \[
+	\varphi_m'(x) \rightarrow 0,\ \  \sup|D^\alpha| \varphi_m(x) \rightarrow 0 
+\]	
+So we could conclude it's a distribution.
+\subsubsection{}
+\begin{align*}
+\varphi_m \rightarrow 0, \ \ |T \varphi_m| & = |\int \frac{1}{\sqrt{|x|}}  \varphi_m(x) dx| \\
+& \leq (\int \frac{1}{\sqrt{|x|}}dx)\cdot sup|\varphi_m(x)| \\
+& = 2 \sqrt{|x|} \cdot sup|\varphi_m(x)|
+\end{align*}
+So we can conclude it's a distribution.
+\subsubsection{}
+\begin{align*}
+\varphi_m \rightarrow 0, \ \ |T \varphi_m| & = |\int \frac{1}{x^2}  \varphi_m(x) dx| \\
+& = \left.- \frac{1}{x} \varphi(x) \right|_{-\infty}^\infty - \int (-\frac{1}{x}) \varphi'(x)dx \\
+&= ln|x| \varphi'(x)|_{-\infty}^\infty - \int ln|x| \phi''(x) dx \\
+&= \int ln|x| \varphi''(x) dx
+\end{align*}
+Sine \[
+	sup|D^\alpha| \varphi_m(x) \rightarrow 0
+\]
+So we can conclude it's a distribution.
+
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
