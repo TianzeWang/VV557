@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  16 MAR 2019 19:32
-=======
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  16 MAR 2019 19:08
->>>>>>> 4b09d59749e3d5cfa9ad4613b992a419eaa8c96d
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  16 MAR 2019 19:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1702,7 +1698,6 @@ LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
 (Font)              scaled to size 6.33531pt on input line 146.
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
 (Font)              scaled to size 4.52522pt on input line 146.
-<<<<<<< HEAD
  [1]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 155.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
@@ -1729,21 +1724,3 @@ Here is how much of TeX's memory you used:
  61i,10n,105p,10362b,33022s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on HW3.pdf (2 pages).
-=======
-)
-! Emergency stop.
-<*> HW3.tex
-           
-*** (job aborted, no legal \end found)
-
- 
-Here is how much of TeX's memory you used:
- 43989 strings out of 493591
- 916837 string characters out of 6143546
- 970166 words of memory out of 5000000
- 46843 multiletter control sequences out of 15000+600000
- 6466 words of font info for 60 fonts, out of 8000000 for 9000
- 1347 hyphenation exceptions out of 8191
- 61i,10n,105p,10362b,33002s stack positions out of 5000i,500n,10000p,200000b,80000s
-Output written on HW3.pdf (1 page).
->>>>>>> 4b09d59749e3d5cfa9ad4613b992a419eaa8c96d
