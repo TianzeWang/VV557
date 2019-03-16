@@ -1,14 +1,16 @@
 % !TEX program = xelatex
 \documentclass{article}
 \usepackage{geometry}
-\geometry{left = 3cm, right = 3cm, top = 3cm, bottom = 3cm}
+\geometry{left = 2.5cm, right = 2.5cm, top = 3cm, bottom = 3cm}
 \usepackage[linesnumbered,ruled,longend]{algorithm2e}
 \usepackage{amsmath}
+\usepackage[makeroom]{cancel}
 \usepackage{amsfonts,amssymb}
 \usepackage{blkarray}
 \usepackage{booktabs}
 \usepackage{dsfont}
 \usepackage{enumerate}
+\usepackage{extarrows}
 \usepackage{epsf}
 \usepackage{fontspec}
 \usepackage{forest}
@@ -26,6 +28,7 @@
 \renewcommand\thesubsection{\roman{subsection}).}
 \renewcommand\thesubsubsection{\roman{subsection}).\alph{subsubsection}.}
 \newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\newcommand\supp{{\rm supp\ }}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 \newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
 \SetCommentSty{mycommfont}
@@ -131,22 +134,129 @@
 %\tableofcontents
 %\newpage
 \setcounter{page}{1}
-\section{}
 \normalsize
 \section{}
+Since $g \in \mathcal { D } ^ { \prime } \left( \mathbb { R } ^ { 2 } \right), g ( x ) = - \frac { 1 } { 2 \pi } \log | x |$, g(x) is locally integrable, we have $$ \left( \Delta T _ { g } \right) ( \varphi ) = T _ { g } ( \Delta \varphi ) = \lim _ { \varepsilon \rightarrow 0 } \int _ { | x | > \varepsilon } g ( x ) \varphi(x)d x $$
+	In polar coordinates, $r=|x|, g ( r ) = - \frac { 1 } { 2 \pi } \log ( r ) , r\geq 0$
+	\\According to Green’s second identity:$$\int _ { r > \varepsilon } g ( r ) \Delta \varphi ( r ) d r = \int _ { r > \varepsilon } \varphi ( r ) \Delta g ( r ) d r + \int _ { r = \varepsilon } \left( g \frac { \partial \varphi } { \partial n } - \varphi \frac { \partial g } { \partial n } \right) d \sigma$$
+	\\since $\Delta g = \frac { 1 } { r } \frac { \partial g } {\partial r } + \frac { \partial ^ { 2 } g } { \partial ^ { 2 } r } + \frac { 1 } { r ^ { 2 } } \frac { \partial ^ { 2 } g } { \partial \theta } = 0, \int _ { r > \varepsilon } \varphi ( r ) \Delta g ( r ) d r=0 $, 
+	$$\int _ { r = \varepsilon } \left( g \frac { \partial \varphi } { \partial n } - \varphi \frac { \partial g } { \partial n } \right) d \sigma=\int _ { r = \varepsilon } \left( \varphi \frac { \partial g } { \partial r } - g \frac { \partial \varphi } { \partial r } \right) d \sigma$$
+    $$=\int _ { r = \varepsilon } \left[\left( - \frac { 1 } { 2 \pi } \right) \cdot \frac { 1 } { r } \varphi - \left( - \frac { 1 } { 2 \pi } \right) \cdot \log ( r ) \frac { \partial  \varphi } { \partial r } \right] d \theta$$
+	$\varphi \in \mathcal { D } ^ { \prime } \left( \mathbb { R } ^ { 2 } \right)$ implies $\frac { \partial \varphi } { \partial r }$ bounded, so 
+	$$ \left| \int _ { r = \varepsilon }  \frac { 1 } { 2 \pi } \cdot log ( r ) \frac { \partial \varphi } { \partial r } d \sigma \right| \leq  constant \cdot \frac { 1 } { 2 \pi }\cdot \log  \varepsilon \cdot 2 \pi \varepsilon \stackrel { \varepsilon \rightarrow 0 } { \longrightarrow } 0$$
+    $$ \int _ { r = \varepsilon } \left( - \frac { 1 } { 2 \pi } \right) \frac { 1 } { r } \cdot \varphi d \sigma\stackrel {\varepsilon \rightarrow 0 } { \longrightarrow } - \frac { 1 } { 2 \pi } \cdot \frac { 1 } { \varepsilon } \cdot  \varphi ( x ) \cdot 2 \pi \varepsilon = - \varphi ( 0 )$$
+    Therefore, $\Delta T _ { g } \varphi(x)= - \varphi ( 0 ),  \Delta g = -\delta ( x ) $
+\section{}
+u: $R^2\rightarrow{}R $ is given by u(x,t)=$\left\{\begin{array}{l}\frac{1}{2}\ \
+\ t-\left\vert{}x\right\vert{}>0, \\
+0\ \ \ otherwise\end{array}\right.$
+
+Now, u(x,t)=$\left\{\begin{array}{l}\frac{1}{2}\ \ \
+t>\left\vert{}x\right\vert{}, \\
+0\ \ \ t\leq{}\left\vert{}x\right\vert{}\end{array}\right.$ --(0)
+
+So, in any case u(x,t) is a constant function, neither it depends on the values
+of t nor x.
+
+Now, differentiate (0) partially with respect to t
+
+
+\begin{equation}
+u_t=\left\{\begin{array}{l}0\ \ \ t>\left\vert{}x\right\vert{}, \\
+0\ \ \ t\leq{}\left\vert{}x\right\vert{}\end{array}\right.\
+%eq2
+\end{equation}
+
+Again differentiate (1) partially with respect to t
+
+=$>$ $u_{tt}$=0 for any t
+
+Now, differentiate (0) partially with respect to x
+
+
+
+\begin{equation}
+u_x=\left\{\begin{array}{l}0\ \ \ t>\left\vert{}x\right\vert{}, \\
+0\ \ \ t\leq{}\left\vert{}x\right\vert{}\end{array}\right.\
+%eq3
+\end{equation}
+
+Again differentiate (2) partially with respect to x
+
+=$>$ $u_{xx}$=0 for any x
+
+So $u_{tt}-u_{xx}=0-0=0$
+
 \section{}
 The distribution of $P(\frac{1}{x})$ is given as 
 \[
-	\mathcal{P}\left(\frac{1}{x}\right)(\varphi) :=\lim _{\varepsilon \rightarrow 0} \int_{|x| > \varepsilon} \frac{\varphi(x)}{x} d x
+	\mathcal{P}\left(\frac{1}{x}\right)(\varphi) :=\lim _{\varepsilon \rightarrow 0} \int_{|x| \geq \varepsilon} \frac{\varphi(x)}{x} d x
 \]
 Observing the distribution of $P(\frac{1}{x^2})$ is given as 
 \[
 	\mathcal{P}\left(\frac{1}{x^{2}}\right)(\varphi) :=\lim _{\varepsilon \searrow 0} \int_{|x|>\varepsilon} \frac{1}{x^{2}}(\varphi(x)-\varphi(0)) d x
 \]
-So we express it in the form of 
+% So we express it in the form of 
+% \[
+% 	\mathcal{P}\left(\frac{1}{x^2}\right)(\varphi) =\lim _{\varepsilon \searrow 0} \int_{|x| > \varepsilon} \left(-\frac{d}{dx}(\frac{1}{x})\right)\cdot \left(\int_\varepsilon^x (\frac{d}{dt}\varphi(t))dt\right) d x
+% \]
+According to the definition of weak derivative
 \[
-	\mathcal{P}\left(\frac{1}{x^2}\right)(\varphi) =\lim _{\varepsilon \searrow 0} \int_{|x| > \varepsilon} \left(-\frac{d}{dx}(\frac{1}{x})\right)\cdot \left(\int_\varepsilon^x (\frac{d}{dt}\varphi(t))dt\right) d x
+	\frac{d}{dx}\mathcal{P}\left(\frac{1}{x}\right)(\varphi) = - \mathcal{P}\left(\frac{1}{x}\right)(\frac{d}{dx}\varphi) 
+\]	
+We can thus express it into
+\begin{align*}
+	\frac{d}{dx}\mathcal{P}\left(\frac{1}{x}\right)(\varphi)& = - \lim _{\varepsilon \rightarrow 0} \int_{|x| \geq \varepsilon} \frac{\varphi'(x)}{x} d x \\
+	&= -\lim _{\varepsilon \rightarrow 0} (\int_{\varepsilon}^\infty \frac{\varphi'(x)}{x} d x + \int_{-\infty}^{-\varepsilon} \frac{\varphi'(x)}{x} d x)
+\end{align*}
+Then we investigate on $\displaystyle -\lim _{\varepsilon \rightarrow 0} \int_{-\infty}^{-\varepsilon} \frac{\varphi'(x)}{x} d x$. By applying the basic integral rule $\int u'v = uv + \int uv'$, 
+\begin{align*}
+	-\lim _{\varepsilon \rightarrow 0} \int_{-\infty}^{-\varepsilon} \frac{\varphi'(x)}{x} d x & = -\lim _{\varepsilon \rightarrow 0}\left(\left.\frac{1}{x}\cdot \varphi(x) \right|_{-\infty}^ {-\varepsilon} + \int_{-\infty}^{-\varepsilon} \frac{\varphi(x)}{x^\prime} d x\right )\\
+	&=-\lim _{\varepsilon \rightarrow 0}\left(\left.\frac{1}{x}\cdot \varphi(x) \right|_{-\infty}^ {-\varepsilon} + \int_{-\infty}^{-\varepsilon} \frac{\varphi(x)}{x^2} d x\right ) \\
+	&=-\lim _{\varepsilon \rightarrow 0}\left(\left.\frac{1}{x}\cdot \varphi(x) \right|_{-\infty}^ {-\varepsilon} + \int_{-\infty}^{-\varepsilon} \frac{(\varphi(x)-\varphi(0))+ \varphi(0)}{x^2} d x\right )\\
+	&=-\lim _{\varepsilon \rightarrow 0}\left(\left.\frac{1}{x}\cdot \varphi(x) \right|_{-\infty}^ {-\varepsilon} + \int_{-\infty}^{-\varepsilon} \frac{(\varphi(x)-\varphi(0))}{x^2} d x+ \int_{-\infty}^{-\varepsilon} \frac{\varphi(0)}{x^2} d x\right )\\
+	&=-\lim _{\varepsilon \rightarrow 0}\left( (\frac{\varphi(-\varepsilon)}{-\varepsilon} - 0) + \int_{-\infty}^{-\varepsilon} \frac{(\varphi(x)-\varphi(0))}{x^2} d x+ \int_{-\infty}^{-\varepsilon} \frac{\varphi(0)}{x^2} d x\right )\\
+	&=-\lim _{\varepsilon \rightarrow 0}\left( \frac{\varphi(-\varepsilon)}{-\varepsilon} + \int_{-\infty}^{-\varepsilon} \frac{(\varphi(x)-\varphi(0))}{x^2} d x+ \int_{-\infty}^{-\varepsilon} \frac{\varphi(0)}{x^2} d x\right )
+\end{align*}
+Similarly, we can derive the expression of $-\lim _{\varepsilon \rightarrow 0} \int_{\varepsilon}^{\infty} \frac{\varphi^{\prime}(x)}{x} d x$. Then
+\begin{align*}
+	\frac{d}{dx}\mathcal{P}\left(\frac{1}{x}\right)(\varphi)& = - \lim _{\varepsilon \rightarrow 0} \int_{|x| \geq \varepsilon} \frac{\varphi'(x)}{x} d x \\
+	&= -\lim _{\varepsilon \rightarrow 0} (\int_{\varepsilon}^\infty \frac{\varphi'(x)}{x} d x + \int_{-\infty}^{-\varepsilon} \frac{\varphi'(x)}{x} d x)
+\end{align*}
+\begin{align*}
+	\frac{d}{dx}\mathcal{P}\left(\frac{1}{x}\right)(\varphi)& = - \lim _{\varepsilon \rightarrow 0} \int_{|x| \geq \varepsilon} \frac{\varphi'(x)}{x} d x \\
+	&= -\lim _{\varepsilon \rightarrow 0} (\int_{\varepsilon}^\infty \frac{\varphi'(x)}{x} d x + \int_{-\infty}^{-\varepsilon} \frac{\varphi'(x)}{x} d x)\\
+	&=-\lim _{\varepsilon \rightarrow 0}\left( \frac{\varphi(-\varepsilon)}{-\varepsilon}+\frac{\varphi(\varepsilon)}{\varepsilon} + \int_{-\infty}^{-\varepsilon} \frac{\varphi(x)-\varphi(0)}{x^2} d x + \int_{\varepsilon}^{\infty} \frac{\varphi(x)-\varphi(0)}{x^{2}} d x+ \int_{-\infty}^{-\varepsilon} \frac{\varphi(0)}{x^2} d x +\int_{\varepsilon}^{\infty} \frac{\varphi(0)}{x^2} d x \right)\\
+\end{align*}
+Sine $\varphi(x) \in C_0^\infty$, it is continuous at $x = 0$, so 
+\[
+	\varphi(0^-) = \varphi(0^+)
+\]	
+which means
+\[
+	\lim _{\varepsilon \rightarrow 0} \varphi(-\varepsilon) =\lim _{\varepsilon \rightarrow 0}  \varphi(\varepsilon)
 \]
+Divide by same denominator $\varepsilon$, it yields to 
+\[
+	\lim _{\varepsilon \rightarrow 0} \frac{\varphi(-\varepsilon)}{\varepsilon} =\lim _{\varepsilon \rightarrow 0}  \frac{\varphi(\varepsilon)}{\varepsilon}
+\]
+Which means
+\[
+	\lim _{\varepsilon \rightarrow 0} \left(\frac{\varphi(-\varepsilon)}{-\varepsilon} + \frac{\varphi(\varepsilon)}{\varepsilon}\right) = 0
+\]
+Also, $\int \frac{1}{x^2} = -\frac{1}{x}$, which is an odd function, and then integral given by
+\[
+	\lim _{\varepsilon \rightarrow 0} \left( \int_{-\infty}^{-\varepsilon} \frac{\varphi(0)}{x^{2}} d x+\int_{\varepsilon}^{\infty} \frac{\varphi(0)}{x^{2}} d x \right)
+\]
+is defined on a symmetric interval, which yields to the total integral value to be 0. Then $\frac{d}{dx}\mathcal{P}\left(\frac{1}{x}\right)(\varphi)$ becomes
+\[
+	\frac{d}{dx}\mathcal{P}\left(\frac{1}{x}\right)(\varphi) = -\lim _{\varepsilon \rightarrow 0} \left(\int_{-\infty}^{-\varepsilon} \frac{\varphi(x)-\varphi(0)}{x^{2}} d x + \int_{\varepsilon}^{\infty} \frac{\varphi(x)-\varphi(0)}{x^{2}} d x \right) = -\lim _{\varepsilon \searrow 0} \int_{|x|>\varepsilon} \frac{1}{x^{2}}(\varphi(x)-\varphi(0)) d x
+\]
+which means
+\[
+	\frac{d}{d x} \mathcal{P}\left(\frac{1}{x}\right)=-\mathcal{P}\left(\frac{1}{x^{2}}\right)
+\]
+\qedhere
 \end{document}
 
 
