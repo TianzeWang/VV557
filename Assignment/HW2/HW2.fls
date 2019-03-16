@@ -36,6 +36,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cancel/cancel.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/cancel/cancel.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
@@ -48,6 +50,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/doublestroke/dsfont.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/enumerate.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/enumerate.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/extarrows/extarrows.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/extarrows/extarrows.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/epsf/epsf.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/generic/epsf/epsf.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec.sty
