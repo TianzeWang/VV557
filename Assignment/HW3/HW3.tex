@@ -152,6 +152,18 @@ The Fourier transform is then calculated as
 	&= \int_{a}^{b} e^{-i \omega t} d t  \\
 	&= \left. \frac{e^{-i \omega t}}{-i \omega} \right|_a^b = \frac{e^{-i \omega b}-e^{-i \omega a}}{-i \omega}
 \end{align*}
+\subsection{}
+\[
+	f(x) = e^{-a|x|}
+\]
+Plug it in Fourier transform, which yields to 
+\begin{align*}
+	\mathcal{F}(\omega)&=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 
+	&= \int_{-\infty}^0 e^{ax}  e^{-i \omega x} dx \cdot \int_0^{+\infty} e^{-ax}  e^{-i \omega x} dx \\
+	&= \left.\frac{e^{x(a- i \omega)}}{a- i \omega} \right|_{-\infty}^0 \cdot \left.\frac{e^{-x (a+ i \omega)}}{-a - i \omega} \right|_0^{+\infty} \\
+	& = -\frac{e^{a - i \omega}}{a- i \omega}\cdot \frac{e^{a + i \omega}}{-a- i \omega}\\
+	&= \frac{e^{a - i \omega}}{a- i \omega}\cdot \frac{e^{a + i \omega}}{a+ i \omega}
+\end{align*}
 \end{document}
 
 	

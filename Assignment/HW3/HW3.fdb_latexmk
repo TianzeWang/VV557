@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1552736317 "HW3.tex" "HW3.pdf" "HW3" 1552736321
+["pdflatex"] 1552737399 "HW3.tex" "HW3.pdf" "HW3" 1552737402
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -182,14 +182,14 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1484319860 3520381 ff8107c8aac6ea0a9b25c7e51d4d2ff4 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "HW3.aux" 1552736319 837 30dd935711f703796535ee5e9b20dfba ""
-  "HW3.out" 1552736319 104 71de56a7c24aa814464a973bc3155ed6 ""
-  "HW3.tex" 1552736311 4463 8b558d54b47c6041d14a3293967899cc ""
+  "HW3.aux" 1552737402 921 6f2c3da6df4779015a296d0855e57387 ""
+  "HW3.out" 1552737402 153 c0cf0ddba5536858f861415196ace105 ""
+  "HW3.tex" 1552737398 5071 fee753eda13787faae01144837225701 ""
   "Logo2.png" 1552735680 23557 e963250a164034ed0f577fe4308eb37b ""
   (generated)
-  "Logo2.png"
-  "HW3.aux"
   "HW3.pdf"
-  "HW3.log"
+  "Logo2.png"
   "HW3.tex"
+  "HW3.aux"
+  "HW3.log"
   "HW3.out"
