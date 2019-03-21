@@ -24,10 +24,11 @@
 %\usepackage{indentfirst}
 %\usepackage[usenames,dvipsnames]{xcolor}
 \newfontfamily\Inputmono{Consolas}
-\renewcommand\thesection{Exercise 2.\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesection{Exercise 3.\ \arabic{section}}%\arabic{section}}
 \renewcommand\thesubsection{\roman{subsection}).}
 \renewcommand\thesubsubsection{\roman{subsection}).\alph{subsubsection}.}
 \newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\newcommand{\f}{\frac}
 \newcommand\supp{{\rm supp\ }}
 \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
 \newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
@@ -138,7 +139,7 @@
 \section{Fourier Transform}
 The Fourier Transform is defined as 
 \[
-	\mathcal{F}(\omega)=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t
+	\mathcal{F}(\omega)=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t
 \]
 \subsection{}
 Plug in the definition of $f(x)$
@@ -147,23 +148,178 @@ Plug in the definition of $f(x)$
 \]
 The Fourier transform is then calculated as 
 \begin{align*}
-	\mathcal{F}(\omega)&=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 
+	\mathcal{F}(\omega)\cdot \sqrt{2\pi}&=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 
 	&=\int_{-\infty}^{a} 0\cdot  e^{-i \omega t} d t +\int_{a}^{b} e^{-i \omega t} d t +\int_{b}^{\infty} 0\cdot  e^{-i \omega t} d t \\
 	&= \int_{a}^{b} e^{-i \omega t} d t  \\
 	&= \left. \frac{e^{-i \omega t}}{-i \omega} \right|_a^b = \frac{e^{-i \omega b}-e^{-i \omega a}}{-i \omega}
 \end{align*}
+So
+\[
+	\mathcal{F}(\omega) = \frac{e^{-i \omega b}-e^{-i \omega a}}{-i \omega \sqrt{2\pi}}
+\]
 \subsection{}
 \[
 	f(x) = e^{-a|x|}
 \]
 Plug it in Fourier transform, which yields to 
 \begin{align*}
-	\mathcal{F}(\omega)&=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 
-	&= \int_{-\infty}^0 e^{ax}  e^{-i \omega x} dx \cdot \int_0^{+\infty} e^{-ax}  e^{-i \omega x} dx \\
-	&= \left.\frac{e^{x(a- i \omega)}}{a- i \omega} \right|_{-\infty}^0 \cdot \left.\frac{e^{-x (a+ i \omega)}}{-a - i \omega} \right|_0^{+\infty} \\
-	& = -\frac{e^{a - i \omega}}{a- i \omega}\cdot \frac{e^{a + i \omega}}{-a- i \omega}\\
-	&= \frac{e^{a - i \omega}}{a- i \omega}\cdot \frac{e^{a + i \omega}}{a+ i \omega}
+	\mathcal{F}(\omega)\cdot \sqrt{2\pi}&=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 
+	&= \int_{-\infty}^0 e^{ax}  e^{-i \omega x} dx + \int_0^{+\infty} e^{-ax}  e^{-i \omega x} dx \\
+	&= \left.\frac{e^{x(a- i \omega)}}{a- i \omega} \right|_{-\infty}^0 + \left.\frac{e^{-x (a+ i \omega)}}{-a - i \omega} \right|_0^{+\infty} \\
+	& = -\frac{1}{a- i \omega}+ \frac{1}{-a- i \omega}\\
+	&= \frac{1}{a- i \omega}+ \frac{1}{a+ i \omega} \\
+	&= \frac{2a}{a^2+\omega^2}
 \end{align*}
+So 
+\[
+	\mathcal{F}(\omega)=\frac{a \sqrt{\frac{2}{\pi}}}{a^{2}+\omega^{2}}
+\]
+\subsection{}
+Plug in $f(t) = e^{-a x^{2}}$
+\begin{align*}
+	\mathcal{F}(\omega)&=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 
+	&= \int_{-\infty}^{\infty} e^{-a t^{2}} e^{-i \omega t} d t \\ 
+	&= \int_{-\infty}^{\infty} \mathrm{e}^{\frac{b^{2}}{4 a}-\left(\sqrt{a} t+\frac{b}{2 \sqrt{a}}\right)^{2}} \mathrm{d} t
+\end{align*}
+Then we apply the substitution Rule, we define $u:= (\sqrt{a} t+\frac{b}{2 \sqrt{a}})$, then 
+\[
+	\mathrm{d} u = \sqrt{a}\mathrm{d}t
+\]
+The original equation then becomes
+\begin{align*}
+	&\int_{-\infty}^{\infty} \mathrm{e}^{\frac{b^{2}}{4 a}-\left(\sqrt{a} t+\frac{b}{2 \sqrt{a}}\right)^{2}} \mathrm{d} t \\
+	=&\int_{-\infty}^{\infty} \frac{\mathrm{e}^{\frac{b^{2}}{4 a}-u^{2}} }{\sqrt{a}}\mathrm{d}u\\
+	=&\frac{\mathrm{e}^{\frac{b^{2}}{4 a}}}{\sqrt{a}}\int_{-\infty}^{\infty} \frac{\mathrm{e}^{-u^{2}}}{\sqrt{a}} du
+\end{align*} 
+Note that for the third step, we define
+\[
+	b = i \omega
+\]
+We recall the definition of Gauss Error function, which is of the similar form
+\[
+	\mathrm{erf}(x) = \frac{1}{\sqrt{\pi}} \int_{-x}^{x} e^{-t^{2}} d t
+\]
+which yields to
+\begin{align*}
+	\mathcal{F}( \omega)\cdot \sqrt{2\pi} =&\frac{\sqrt{\pi} \mathrm{e}^{\frac{b^{2}}{4 a}}}{ \sqrt{a}} \int_{-\infty}^{\infty} \frac{ \mathrm{e}^{-u^{2}}}{\sqrt{\pi}} \mathrm{d} u\\
+	=& \frac{\sqrt{\pi} \mathrm{e}^{\frac{b^{2}}{4 a}}}{ \sqrt{a}} \mathrm{erf}(x)|_{0}^{+\infty}\\
+	=&\frac{\sqrt{\pi} \mathrm{e}^{\frac{-\omega^2}{4 a}}}{ \sqrt{a}} (1-0)\\
+	=&\frac{\sqrt{\pi} \mathrm{e}^{\frac{-\omega^2}{4 a}}}{\sqrt{a}}
+\end{align*}
+So 
+\[
+	\mathcal{F}( \omega)=\frac{e^{-\frac{w^{2}}{4 a}}}{\sqrt{2a}}
+\]
+\subsection{}
+Plug in $f(x) = \cos (x) e^{-x^{2}}$,
+\begin{align*}
+	\mathcal{F}(\omega)\cdot \sqrt{2\pi} &=\int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 	
+	&=\int_{-\infty}^{\infty} \cos (t) e^{-t^{2}} e^{-i \omega t} d t \\
+	&=\int_{-\infty}^{\infty} \frac{e^{it}+e^{-it}}{2} e^{-t^{2}} e^{-i \omega t} d t \\
+	&=\int_{-\infty}^{\infty} \frac{e^{it}}{2} e^{-t^{2}} e^{-i \omega t} d t+\int_{-\infty}^{\infty} \frac{e^{-it}}{2} e^{-t^{2}} e^{-i \omega t} d t
+\end{align*}
+Then the strategy is mostly alike 3.1.iii). We simplify the procedure, and the answer is given as
+\begin{align*}
+	\mathcal{F}(\omega)\cdot \sqrt{2\pi} &=\frac{\sqrt{\pi} \mathrm{e}^{-\frac{w^{2}}{4}+\frac{w}{2}-\frac{1}{4}}}{2}+\frac{\sqrt{\pi} \mathrm{e}^{-\frac{u^{2}}{4}-\frac{w}{2}-\frac{1}{4}}}{2}\\
+	&= \frac{\sqrt{\pi}\left(\mathrm{e}^{w}+1\right) \mathrm{e}^{-\frac{w^{2}}{4}-\frac{w}{2}-\frac{1}{4}}}{2}
+\end{align*}
+So
+\[
+	\mathcal{F}(\omega) = \frac{\left(\mathrm{e}^{w}+1\right) \mathrm{e}^{-\frac{w^{2}}{4}-\frac{w}{2}-\frac{1}{4}}}{2\sqrt{2}}
+\]
+\subsection{}
+We consider the property that 
+Plug in $f(x) = \cos (2 x) /\left(4+x^{2}\right)$
+\begin{align*}
+	\mathcal{F}(\omega)&=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(t) e^{-i \omega t} d t \\ 	
+	&= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \frac{\cos(2t)}{4+t^2} e^{-i \omega t} d t \\ 	
+	&= \frac{1}{2\sqrt{2\pi}} \int_{-\infty}^{\infty} \frac{{e^{2it}+e^{-2it}}}{4+t^2} e^{-i \omega t} d t \\
+	&= \frac{1}{2\sqrt{2\pi}} \left(\int_{-\infty}^{\infty} \frac{e^{2it}}{4+t^2} e^{-i \omega t} d t+\int_{-\infty}^{\infty} \frac{{e^{-2it}}}{4+t^2} e^{-i \omega t} d t\right)
+\end{align*}
+From the solution of 3.1.3, 
+\[
+	\widehat{e^{-a|x|}}=\frac{a \sqrt{\frac{2}{\pi}}}{a^{2}+\omega^{2}}
+\]
+Plug in $a = 2$, it yields to
+\[
+	\widehat{e^{-2|x|}}=\frac{2 \sqrt{\frac{2}{\pi}}}{4+\omega^{2}}
+\]
+From the definition of Fourier Transform
+\[
+	\widehat{\widehat{f(t)}}=f(-t)
+\]
+We could conclude that
+\[
+	\frac{1}{2\sqrt{2\pi}} \left(\int_{-\infty}^{\infty} \frac{e^{2it}}{4+t^2} e^{-i \omega t} d t\right) = \frac{1}{4}\sqrt{\frac{\pi}{2}} e^{-2|\omega-2|}
+\]
+So the whole Fourier Transform then becomes
+\[
+	\mathcal{F}(\omega) = \frac{1}{4}\sqrt{\frac{\pi}{2}} e^{-2|\omega-2|}+\frac{1}{4}\sqrt{\frac{\pi}{2}} e^{-2|\omega+2|}
+\]
+\subsection{}
+Consider the property
+\[
+	\widehat{\varphi * \psi}=(2 \pi)^{n / 2} \hat{\varphi} \cdot \hat{\psi}
+\]
+Here $n=1$. Then
+\[
+	\widehat{x e^{-x^{2}}*e^{-x^{2}}} = (2 \pi)^{\frac{1}{2}} \widehat{x e^{-x^{2}}}\cdot \widehat{e^{-x^{2}}}
+\]
+From the result before
+\[
+	\widehat{e^{-x^{2}}}=\frac{e^{-\frac{w^{2}}{4}}}{\sqrt{2}}
+\]
+Then we apply Fourier Transform on $x e^{-x^{2}}$
+\[
+	\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty} t e^{-t^{2}}  e^{-i \omega t} d t = \frac{ \mathrm{i} \omega \mathrm{e}^{-\frac{w^{2}}{4}}}{2\sqrt{2}}
+\]
+So the total integral is given by
+\begin{align*}
+	\widehat{x e^{-x^{2}}*e^{-x^{2}}} &= (2 \pi)^{\frac{1}{2}}\cdot \frac{e^{-\frac{w^{2}}{4}}}{\sqrt{2}}\cdot  \frac{ \mathrm{i} \omega \mathrm{e}^{-\frac{w^{2}}{4}}}{2\sqrt{2}}\\
+	&=\frac{\sqrt{2 \pi} e^{-\frac{w^{2}}{4}} i \omega e^{-\frac{w^{2}}{4}} }{4}
+\end{align*}
+\section{}
+\subsection{}
+$g(x) = \left\{\begin{array}{ll}{e^{-\varepsilon x}} & {x \geq 1} \\ {0} & {x<1}\end{array}\right. \quad \varepsilon>0$
+\begin{align*}
+	\hat{T}_{g} \varphi&=T_{g} \hat{\varphi}=\int_{1}^{\infty} e^{-\varepsilon \xi} \cdot \hat{\varphi}(\xi) d \xi\\
+	&=\frac{1}{\sqrt{2 \pi}} \int_{1}^{\infty} \int_{-\infty}^{\infty} e^{-\varepsilon \xi} e^{-i x \xi} \varphi(x) d x d \xi \\
+	&=\frac{1}{\sqrt{2 \pi}} \int_{1}^{\infty} \int_{-\infty}^{\infty} e^{(-\varepsilon -i x )\xi} \varphi(x) d x d \xi \\
+	&= \frac{1}{\sqrt{2 \pi}}  \int_{-\infty}^{\infty} \left(\int_{1}^{\infty} e^{(-\varepsilon -i x )\xi} d \xi\right) \varphi(x) d x  \\
+	&= \frac{1}{\sqrt{2 \pi}}  \int_{-\infty}^{\infty} \frac{e^{-\varepsilon-ix}}{\varepsilon+ix} \varphi(x) d x  \\
+\end{align*}
+So 
+\[
+	\hat{g(x)} =  \frac{1}{\sqrt{2 \pi}}\cdot \frac{e^{-\varepsilon-ix}}{\varepsilon+ix}
+\]
+\subsection{}
+$$\sin ( 3 x - 2 ) = \frac { e ^ { i ( 3x - 2 ) } - e ^ { - i ( 3 x - 2 ) } } { 2 i } = \frac { e ^ { - 2 i } } { 2 i } e ^ { i 3 x } - \frac { e ^ { 2 i } } { 2 i } e ^ { - i 3 x }$$
+	
+$$\hat { T } _ { \delta \left( \xi - \xi _ { 0 } \right) } \varphi= \int _ { - \infty } ^ { \infty } \delta \left( \xi - \xi _ { 0 } \right) \cdot \int _ { - \infty } ^ { \infty } \frac { 1 } { \sqrt { 2 \pi } } e ^ { - i x \xi } \varphi ( x ) d x d\xi	= \int _ { - \infty } ^ { \infty } \frac { 1 } { \sqrt { 2 \pi } } e ^ { - i x \xi _ { 0 }} \varphi ( x ) d x$$
+	
+$$\hat { \delta } \left( \xi - \xi _ { 0 } \right) = \frac { 1 } { \sqrt { 2 \pi } } e ^ { - i \xi _ { 0 } x }$$,thus $$e ^ { - i \xi _ { 0 } x } = \sqrt { 2 \pi } \hat { \delta } \left( \xi - \xi _ { 0 } \right)$$
+\begin{align*}
+	\hat { T }_{\sin ( 3 x - 2 )}  \varphi &= T \frac { e ^ { - 2i } } { 2 i } \delta ( \xi + 3 ) \hat{\hat { \varphi }} - T \frac { e ^ { 2 i } } { 2 i } \delta ( \xi - 3 )\hat{\hat { \varphi }}	\\
+&=\frac { e ^ { - 2 i } } { 2 i } \int _ { - \infty } ^ { \infty } \sqrt { 2 \pi } \delta ( \xi + 3 ) \varphi ( - \xi ) d \xi - \frac { e ^ { 2 i } } { 2 i } \int _ { - \infty } ^ { \infty } \sqrt { 2 \pi } \delta ( \xi - 3 ) \varphi ( - \xi ) d \xi\\
+&= \sqrt { 2 \pi }\left[ \frac { e ^ { - 2 i} } { 2 i }\varphi ( 3 ) - \frac { e ^ { 2 i } } { 2 i } \varphi ( - 3 ) \right] 
+\end{align*}	
+which gives the final answer
+$$\widehat { \sin ( 3x - 2 ) } =i  \sqrt { \frac { \pi } { 2 } } \left[ e ^ { 2 i  } \delta ( \xi + 3 ) - e ^ { - 2 i  } \delta ( \xi - 3 ) \right]$$
+
+\subsection{}
+$$\cos x = \frac { e ^ { i x } + e ^ { - i x } } { 2 }$$
+So
+
+\begin{align*}
+\hat { T } _ { g } \varphi& = T _ { g } \hat { \varphi } = \int _ { - \infty } ^ { \infty } \xi ^ { 2 } \cos ( \xi ) \hat {\varphi }  ( \xi ) d \xi\\
+&= \frac { 1 }{ \sqrt { 2 \pi } } \int _ { - \infty } ^ { \infty } \int _ { - \infty } ^ { \infty } \xi ^ { 2 } \cos ( \xi ) e ^ { - i x \xi } \varphi ( x ) d x d \xi\\
+&=\frac { 1 } { \sqrt { 2 \pi } } \int _ { - \infty } ^ { \infty } \cos ( \xi ) \left[ \int _ { - \infty } ^ { \infty } \xi ^ { 2 } e ^ { - i \xi x } \varphi ( x ) d x \right] d \xi\\
+&= \frac { 1 } { \sqrt { 2 \pi } } \int _ { - \infty } ^ { \infty } \frac { e ^ { i \xi } + e ^ { - i \xi } } { 2 } \left( \int _ { - \infty } ^ { \infty } - e ^ { - i \xi x } \varphi ^ { \prime \prime } ( x ) d x \right) d \xi\\
+&=-\sqrt { \frac { \pi } { 2 } } \varphi ^ { \prime \prime } ( 1 ) - \sqrt { \frac { \pi } { 2 } } \varphi ^ { \prime \prime } ( - 1)
+\end{align*}
+which yields to the answer
+$$ \widehat{x ^ { 2 } \cos x}= - \sqrt { \frac { \pi } { 2 } } \delta ^ { \prime \prime } ( \xi - 1 ) - \sqrt { \frac { \pi } { 2 } } \delta ^ { \prime \prime } ( \xi + 1 )$$
+
 \end{document}
 
 	
