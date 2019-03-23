@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  21 MAR 2019 10:52
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  21 MAR 2019 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1699,12 +1699,24 @@ LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
 LaTeX Font Info:    Font shape `EU1/Optima(1)/m/n' will be
 (Font)              scaled to size 4.52522pt on input line 147.
  [1]
-[2] [3] [4] [5]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
+[2] [3]
+LaTeX Font Info:    Font shape `EU1/CMUBright(0)/m/n' will be
+(Font)              scaled to size 13.14908pt on input line 281.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 281.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 281.
+
+[4] [5] [6] [7]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
  (./HW3.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 323.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 323.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 397.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 397.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1715,12 +1727,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 43995 strings out of 493591
- 916883 string characters out of 6143546
- 977644 words of memory out of 5000000
- 46847 multiletter control sequences out of 15000+600000
- 6466 words of font info for 60 fonts, out of 8000000 for 9000
+ 44014 strings out of 493591
+ 917316 string characters out of 6143546
+ 977846 words of memory out of 5000000
+ 46863 multiletter control sequences out of 15000+600000
+ 8184 words of font info for 68 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  61i,12n,105p,10362b,33031s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on HW3.pdf (6 pages).
+Output written on HW3.pdf (8 pages).

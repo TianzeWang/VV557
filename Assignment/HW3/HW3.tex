@@ -278,7 +278,7 @@ So the total integral is given by
 	\widehat{x e^{-x^{2}}*e^{-x^{2}}} &= (2 \pi)^{\frac{1}{2}}\cdot \frac{e^{-\frac{w^{2}}{4}}}{\sqrt{2}}\cdot  \frac{ \mathrm{i} \omega \mathrm{e}^{-\frac{w^{2}}{4}}}{2\sqrt{2}}\\
 	&=\frac{\sqrt{2 \pi} e^{-\frac{w^{2}}{4}} i \omega e^{-\frac{w^{2}}{4}} }{4}
 \end{align*}
-\section{}
+\section{Fourier on $\mathcal{S'}(\mathbb{R})$}
 \subsection{}
 $g(x) = \left\{\begin{array}{ll}{e^{-\varepsilon x}} & {x \geq 1} \\ {0} & {x<1}\end{array}\right. \quad \varepsilon>0$
 \begin{align*}
@@ -319,7 +319,81 @@ So
 \end{align*}
 which yields to the answer
 $$ \widehat{x ^ { 2 } \cos x}= - \sqrt { \frac { \pi } { 2 } } \delta ^ { \prime \prime } ( \xi - 1 ) - \sqrt { \frac { \pi } { 2 } } \delta ^ { \prime \prime } ( \xi + 1 )$$
+\subsection{}
+$f(x)=xH(x-2)$
 
+
+\[
+F\left[xH\left(x-2\right)\right]=\frac{1}{\sqrt{2\pi{}}}\int_{-\infty{}}^{\infty{}}xH\left(x-2\right)e^{-j\omega{}x}dx=\frac{je^{-2j\omega{}}(\pi{}e^{2j\omega{}}{\omega{}}^2{\delta{}}^{'}\left(\omega{}\right)-2\omega{}+j)}{{\omega{}}^2\sqrt{2\pi{}}}
+\]
+
+
+where the $\delta{}$(x) means the Dirac Delta Function.
+\subsection{}
+ $x^2\delta{}(x-1)$
+
+\[
+F\left[x^2\delta{}\left(x-1\right)\right]=\frac{1}{\sqrt{2\pi{}}}\int_{-\infty{}}^{\infty{}}x^2\delta{}\left(x-1\right)e^{-j\omega{}x}dx=\frac{e^{-j\omega{}}}{\sqrt{2\pi{}}}
+\]
+
+\section{}
+
+We know that $$u_{tt}-u_{xx}=0,\ so\ u_{tt}=u_{xx}\ $$
+
+Taking Fourier Transform on both sides, we have $$\hat{u_{tt}}=\hat{u_{xx}}$$
+
+So
+$$\int_{-\infty{}}^{\infty{}}u_{tt}e^{-jx\xi{}}dx={(-j\xi{})}^2\int_{-\infty{}}^{\infty{}}ue^{-jx\xi{}}dx$$
+
+So $$\frac{d^2\hat{u}}{dt^2}=-{\xi{}}^2\hat{u}$$
+
+This is an ordinary second order homogeneous differential equation with constant
+coefficient.
+
+So $$\hat{u}=Acos(\xi{}t)+Bsin(\xi{}t)$$
+
+We know that $$\left\{\begin{array}{l}u\left(x,0\right)=f\left(x\right) \\
+u_t\left(x,0\right)=g\left(x\right)\end{array}\right.$$
+
+So
+$$\left\{\begin{array}{l}\hat{u}\left(\xi{},0\right)=\hat{f}\left(\xi{}\right) \\
+\hat{u_t}\left(\xi{},0\right)=\hat{g}\left(\xi{}\right)\end{array}\right.$$
+
+So $$\left\{\begin{array}{l}A=\hat{f}\left(\xi{}\right) \\
+B=\frac{\hat{g}\left(\xi{}\right)}{\xi{}}\end{array}\right.$$
+
+So we get
+$$\hat{u}\left(\xi{},t\right)=\hat{f}\left(\xi{}\right)cos\left(\xi{}t\right)+\frac{\hat{g}\left(\xi{}\right)}{\xi{}}sin(\xi{}t)$$
+
+So
+$$u\left(x,t\right)=F^{-1}[\hat{f}\left(\xi{}\right)cos\left(\xi{}t\right)]+F^{-1}[\frac{\hat{g}\left(\xi{}\right)}{\xi{}}sin(\xi{}t)]$$
+
+
+By Shifting property, we have
+$$\left\{\begin{array}{l}F[f\left(x-t\right)]=e^{jt\xi{}}\hat{f}(\xi{}) \\
+F\left[f\left(x+t\right)\right]=e^{-jt\xi{}}\hat{f}(\xi{})\end{array}\right.$$
+
+So
+$$F\left[f\left(x-t\right)+f\left(x+t\right)\right]=\left(e^{jt\xi{}}+e^{-jt\xi{}}\right)\hat{f}\left(\xi{}\right)=2cos(\xi{}t)\hat{f}(\xi{})$$
+
+So
+$$F^{-1}\left[\cos{\left(\xi{}t\right)}\hat{f}\left(\xi{}\right)\right]=\frac{f\left(x-t\right)+f\left(x+t\right)}{2}$$
+
+Now $$F\left[f\left(x\right)\right]=\frac{2sin(\xi{}t)}{\xi{}},\ for\
+\xi{}\not=0$$ where $$f(x)=\left\{\begin{array}{l}1,\
+\left\vert{}x\right\vert{}<t\ \  \\
+0,\ \left\vert{}x\right\vert{}>t\end{array}\right.$$
+
+
+So$$\frac{1}{2}f\left(x\right)=F^{-1}[\frac{sin(\xi{}t)}{\xi{}}]$$
+
+By convolution theorem,
+$$F^{-1}\left[\frac{\hat{g}\left(\xi{}\right)}{\xi{}}sin\left(\xi{}t\right)\right]=F^{-1}\left[\frac{\sin{\left(\xi{}t\right)}}{\xi{}}\hat{g}\left(\xi{}\right)\right]=\left[\frac{1}{2}f\left(x\right)\right]*g\left(x\right)=\int_{-\infty{}}^{\infty{}}\frac{1}{2}f\left(u\right)g\left(x-u\right)du=\frac{1}{2}\int_{-t}^tg\left(u\right)du$$
+
+Since$$ f\left(x\right)=1\ when\ \left\vert{}x\right\vert{}<t$$
+
+So
+$$u\left(x,t\right)=\frac{f\left(x-t\right)+f\left(x+t\right)}{2}+\frac{1}{2}\int_{-t}^tg\left(x\right)dx$$
 \end{document}
 
 	
