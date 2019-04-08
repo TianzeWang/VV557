@@ -1,0 +1,319 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage{geometry}
+\geometry{left = 2.5cm, right = 2.5cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{amsfonts,amssymb}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{extarrows}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Exercise 3.\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{\roman{subsection}).}
+\renewcommand\thesubsubsection{\roman{subsection}).\alph{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\newcommand{\f}{\frac}
+\newcommand\supp{{\rm supp\ }}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{CMU Bright}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwProg{Fn}{Function}{\string:}{end}
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+%\definecolor{mygreen}{rgb}{0,0.6,0}
+%\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+%\definecolor{mywhite}{rgb}{1,1,1}
+%\definecolor{myblack}{rgb}{0,0,0}
+%\definecolor{myblue}{RGB}{27,154,154}
+%\lstset{
+% backgroundcolor=\color{white},
+% basicstyle = \footnotesize\Inputmono,
+% breakatwhitespace = false,
+% breaklines = true,
+% captionpos = b,
+% commentstyle = \color{mygray}\bfseries,
+% extendedchars = false,
+% frame =shadowbox,
+% framerule=0.5pt,
+% frameround=tttt,
+% keepspaces=true,
+% keywordstyle=\color{myblue}\bfseries, % keyword style
+% language = Verilog,                     % the language of code
+% otherkeywords={string},
+% numbers=left,
+% numbersep=5pt,
+% numberstyle=\tiny\color{mymauve},
+% rulecolor=\color{black},
+% showspaces=false,
+% showstringspaces=false,
+% showtabs=false,
+% stepnumber=0,
+% stringstyle=\color{mymauve},        % string literal style
+% tabsize=2,
+% title=\lstname
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+%\setmainfont{Cormorant Upright}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{ \Large  UM--SJTU Joint Institute \vspace*{0.3em}} \\
+\Large  VV557 Methods of Applied Math II\\
+\end{large}
+\hrulefill
+
+\vspace*{2cm}
+\begin{Large}
+\sc{{Assignment 4}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{Large}
+\sc{{Group 22}}\\
+\end{Large}
+\vspace*{0.5cm}
+\begin{large}
+\sc{{Sui, Zijian\ \ 515370910038}} \\
+\sc{{Wang, Tianze\ \ 515370910202}} \\
+\sc{{Xu, Yisu \ \ 118370910021}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\normalsize
+\section{}
+\subsection{}
+We know that $\frac{d^4g}{dx^4}=\delta{}\left(x-\xi{}\right)$.
+
+We hence define the candidate $E\left(x,\xi{}\right)=H(x-\xi{})g_{\xi{}}(x)$for
+the casual fundamental solution, with initial conditions
+$g_{\xi{}}\left(\xi{}\right)=g_{\xi{}}^{'}\left(\xi{}\right)=g_{\xi{}}^{''}\left(\xi{}\right)=0,\
+g_{\xi{}}^{(3)}\left(\xi{}\right)=1$.
+
+Assume that $g_{\xi{}}\left(x\right)=ax^3+bx^2+cx+d$, where a, b, c, d are real
+numbers.
+
+With initial conditions $\left\{\begin{array}{l}a{\xi{}}^3+b{\xi{}}^2+c\xi{}+d=0
+\\
+3a{\xi{}}^2+2b\xi{}+c=0 \\
+6a\xi{}+2b=0 \\
+6a=1\end{array}\right.\ $, we get $\left\{\begin{array}{l}a=\frac{1}{6} \\
+b=-\frac{\xi{}}{2} \\
+c=\frac{{\xi{}}^2}{2} \\
+d=-\frac{{\xi{}}^3}{6}\end{array}\right.$.
+
+So,
+$E\left(x,\xi{}\right)=H(x-\xi{})(\frac{1}{6}x^3-\frac{\xi{}}{2}x^2+\frac{{\xi{}}^2}{2}x-\frac{{\xi{}}^3}{6})$.
+~\\
+\subsection{}
+The general solution is
+$g_{\xi{}}\left(x,\xi{}\right)=E\left(x,\xi{}\right)+u(x)$, where
+$u\left(x\right)=ax^3+bx^2+cx+d$.
+
+So, $g_{\xi{}}\left(x,\xi{}\right)=\left\{\begin{array}{l}ax^3+bx^2+cx+d\
+,x<\xi{} \\
+\left(a+\frac{1}{6}\right)x^3+\left(b-\frac{\xi{}}{2}\right)x^2+\left(c+\frac{{\xi{}}^2}{2}\right)x+\left(d-\frac{{\xi{}}^3}{6}\right)\
+,x>\xi{}\end{array}\right.$
+
+The boundary conditions
+$g\left(0,\xi{}\right)=g^{''}\left(0,\xi{}\right)=g\left(1,\xi{}\right)=g^{''}\left(1,\xi{}\right)=0$.
+
+Then we get $\left\{\begin{array}{l}d=0 \\
+2b=0 \\
+\left(a+\frac{1}{6}\right)+\left(b-\frac{\xi{}}{2}\right)+\left(c+\frac{{\xi{}}^2}{2}\right)+\left(d-\frac{{\xi{}}^3}{6}\right)=0
+\\
+\left(6a+1\right)+(2b-\xi{})=0\end{array}\right.$.
+
+So, $\left\{\begin{array}{l}a=\frac{\xi{}-1}{6} \\
+b=0 \\
+c=\frac{{\xi{}}^3}{6}-\frac{{\xi{}}^2}{2}+\frac{\xi{}}{3} \\
+d=0\end{array}\right.$
+
+So,
+$g_{\xi{}}\left(x,\xi{}\right)=\left\{\begin{array}{l}\frac{\xi{}-1}{6}x^3+(\frac{{\xi{}}^3}{6}-\frac{{\xi{}}^2}{2}+\frac{\xi{}}{3})x\
+,x<\xi{} \\
+\frac{\xi{}}{6}x^3-\frac{\xi{}}{2}x^2+\left(\frac{{\xi{}}^3}{6}+\frac{\xi{}}{3}\right)x-\frac{{\xi{}}^3}{6},x>\xi{}\end{array}\right.$
+
+\section{}
+\subsection{}
+We set: $$E ( x , \xi ) = H ( x - \xi ) u _ { \xi } ( x ),$$
+	where H is the Heaviside function.
+	\\Solve\quad$ L u = 0$:
+    $$L y = - y ^ { \prime \prime } - k ^ { 2 } y = 0$$
+    $$- \lambda ^ { 2 } - k ^ { 2 } = 0$$
+    Solve the equation, we obtain $$\lambda = \pm i k$$
+    Thus $y = e ^ { 0 x } \left( C _ { 1 } \cos k x + C _ { 2 } \sin k x \right)=C _ { 1 } \cos k x + C _ { 2 } \sin k x$
+    $$L u _ { \xi } = 0,\quad u _ { \xi } ( \xi ) = 0 , \quad u _ { \xi } ^ { \prime } ( \xi ) = -1 $$
+    We have, $$
+    \left\{ \begin{array} { l } {  C _ { 1 } \cos k \xi + C _ { 2 } \sin k \xi = 0 } \\ { -  C _ { 1 } k \sin k \xi + C _ { 2 } k \cos k \xi = - 1 } \end{array} \right.
+    $$
+    Solve the equation set, we have$$
+    \begin{aligned} C _ { 1 } & = \frac { \sin k \xi } { k } ,\quad  C _ { 2 } = - \frac { \cos k \xi } { k } \\ u _ { \xi } ( x ) & = \frac { \sin k \xi } { k } \cos  k \xi  - \frac { \cos k \xi } { k } \sin k x \end{aligned}
+    $$
+    Therefore, $$
+    \begin{aligned} E ( x , \xi ) & = H ( x - \xi ) u _ { \xi } ( x ) \\ & = H ( x - \xi ) ( \frac { \sin k \xi } { k } \cos k x - \frac { \cos k \xi } { k } \sin k x ) \end{aligned}
+    $$
+\subsection{}
+The general solution of the homogeneous equation $- \frac { d ^ { 2 } u } { d x ^ { 2 } } - k ^ { 2 } u = 0$ is $$u ( x ) =  C _ { 3 }  \cos k x +  C _ { 4 } 
+     \sin k x$$
+     $$
+     g ( x , \xi ) = E ( x , \xi ) + u ( x ) = \left\{ \begin{array} { l } {  C _ { 3 }  \cos k x + C _ { 4 }  \sin k x } \quad { 0 < x < \xi } \\ { \left( \frac { \sin k \xi } { k } +  C _ { 3 }  \right) \cos k x + \left( - \frac { \cos k \xi } { k } +C _ { 4 } \right) \sin k x }  \quad{ \xi < x < 1 } \end{array} \right.
+     $$
+     We impose the boundary conditions,
+     $$
+     \left\{ \begin{array}  { l } g(0, \xi ) =  C _ { 3 }  = 0 
+     \\ g ( 1 , \xi ) = { \left( \frac { \sin k \xi } { k } +  C _ { 3 }  \right) \cos k + \left( - \frac { \cos k \xi } { k } +C _ { 4 } \right) \sin k }=0 \end{array} \right.
+     $$
+     Then we obtain,$$
+      C _ { 3 }= 0 , C _ { 4 } = \frac { \sin ( k - k \xi ) } { k \sin k }
+     $$
+     Therefore, $$
+     g ( x , \xi ) = \left\{ \begin{array} { l } { \frac { \sin ( k - k \xi ) } { k \sin k } \sin k x }, { 0 < x < \xi } \\ { \frac { \sin k \xi } { k } \cos k x - \frac { \cos k  \sin k \xi } { k \sin k } \sin k x } ,{ \xi < x < 1 } \end{array} \right.$$
+\subsection{}
+We apply Fourier transform on both sides
+\[
+	-\widehat{\frac{d^{2} E}{d x^{2}}}-k^{2} \widehat{E}=\widehat{\delta(x-\xi)}
+\]
+According to Fourier Property
+\[
+	\widehat{\delta(x-\xi)} (\omega)= \frac{1}{\sqrt{2 \pi}} \int_{-\infty} ^ {+\infty} e^{-i \omega x} \delta(x- \xi) dx = \frac{e^{-i \omega \xi}}{\sqrt{2 \pi}}
+\]
+Also, we have 
+\[
+	\widehat{\frac{d^{2} E}{d x^{2}}} = \widehat{D^2 E} = (i \xi)^2 \hat{E} = -\xi^2 \hat E
+\]
+So the equation then becomes
+\[
+	\xi^2 \widehat E - k^{2} \widehat{E} = \frac{e^{-i \omega \xi}}{\sqrt{2 \pi}}
+\]
+Which means
+\[
+	\widehat{E} = \frac{e^{-i \omega \xi}}{\sqrt{2 \pi} (\omega^2 - k^2)} = \frac{e^{-i \omega \xi}}{\sqrt{2 \pi}} \cdot \frac{1}{2k}(\frac{1}{\omega-k} - \frac{1}{\omega +k}) 
+\]
+A useful Fourier transformation is (According to the equation $\mathcal{F}D^ \alpha (-ix)^\beta \varphi(x) = (i \xi)^ \alpha D^ \beta \widehat{\varphi(x)} $)
+\[
+	\mathcal{F}(sgn(x)) (\omega) = \frac{1}{\sqrt{2\pi}} \frac{2}{i \omega}
+\]
+So
+\[
+	\mathcal{F}^{-1}\left(\frac{1}{w}\right)=-i \sqrt{\frac{\pi}{2}} \operatorname{sgn}(x)
+\]
+So the inverse Fourier of $(\frac{1}{\omega-k} - \frac{1}{\omega +k})$ is given as 
+\[
+	\mathcal{F}^{-1} \left(\frac{1}{\omega-k}- \frac{1}{\omega+k}\right) = (e^{-i k x} - e^{ikx})\cdot (-i \sqrt{\frac{\pi}{2}} sgn(x)) = -2i \sin(kx) sgn(x) \cdot (-i \sqrt{\frac{\pi}{2}} sgn(x))
+\]
+So the total inverse Fourier transform is 
+\[
+	E = \mathcal{F}^{-1} (\frac{e^{-i \omega \xi}}{\sqrt{2 \pi}\left(\omega^{2}-k^{2}\right)})= -\frac{\sin (k|x- \xi|)}{2k}
+\]
+% Recall what we proved in HW3.ii that
+% \[
+% 	\widehat{e^{-a|x|}}=\frac{a \sqrt{\frac{2}{\pi}}}{a^{2}+\omega^{2}}
+% \]
+% We apply the reverse Fourier transform, the $e^{-i \omega \xi}$ term lead to a shift according to translation property. So the final equation is given as 
+% \[
+% 	E =\frac{1}{2i k } e^{-ik|x- \xi|}
+% \]
+\subsection{}
+
+We have $g = u+E$. Since $u(x)$ satisfies
+\[
+	-\frac{d^{2} u}{d x^{2}}-k^{2} u=0
+\]
+We can set 
+\[
+	u(x) = \alpha \cos(kx) + \beta \sin(kx)
+\]
+According to two boundary conditions,
+\[
+\left\{\begin{aligned}
+&g(0, \xi)=-\frac{\sin(k \xi)}{2k}+\alpha=0 \\ 
+&g(1, \xi)=-\frac{\sin(k (1-\xi))}{2k}+\alpha \cos k+\beta \sin k=0
+\end{aligned}
+\right.
+\]
+Synthesis two equations, the answer is given as
+\[
+	\left\{
+	\begin{aligned}
+	&\alpha = \frac{\sin(k\xi)}{2k} \\
+	&\beta = \frac{\frac{\sin(k(1-\xi))}{2k}-\frac{\sin(k\xi)\cos k}{2k} }{\sin k }
+	\end{aligned}
+	\right.
+\]
+So the generation solution is given as 
+\[
+	g(x) =  -\frac{\sin (k|x- \xi|)}{2k} + \frac{\sin(k\xi)}{2k}\cos(kx)+ \left(\frac{\frac{\sin(k(1-\xi))}{2k}-\frac{\sin(k\xi)\cos k}{2k} }{\sin k }\right)\sin(kx)
+\]
+\end{document}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

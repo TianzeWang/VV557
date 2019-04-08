@@ -1,0 +1,279 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage{geometry}
+\geometry{left = 2.5cm, right = 2.5cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{amsfonts,amssymb}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{extarrows}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Exercise 5.\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{\roman{subsection}).}
+\renewcommand\thesubsubsection{\roman{subsection}).\alph{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\newcommand{\f}{\frac}
+\newcommand\supp{{\rm supp\ }}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{CMU Bright}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwProg{Fn}{Function}{\string:}{end}
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+%\definecolor{mygreen}{rgb}{0,0.6,0}
+%\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+%\definecolor{mymauve}{rgb}{0.58,0,0.82}
+%\definecolor{mywhite}{rgb}{1,1,1}
+%\definecolor{myblack}{rgb}{0,0,0}
+%\definecolor{myblue}{RGB}{27,154,154}
+%\lstset{
+% backgroundcolor=\color{white},
+% basicstyle = \footnotesize\Inputmono,
+% breakatwhitespace = false,
+% breaklines = true,
+% captionpos = b,
+% commentstyle = \color{mygray}\bfseries,
+% extendedchars = false,
+% frame =shadowbox,
+% framerule=0.5pt,
+% frameround=tttt,
+% keepspaces=true,
+% keywordstyle=\color{myblue}\bfseries, % keyword style
+% language = Verilog,                     % the language of code
+% otherkeywords={string},
+% numbers=left,
+% numbersep=5pt,
+% numberstyle=\tiny\color{mymauve},
+% rulecolor=\color{black},
+% showspaces=false,
+% showstringspaces=false,
+% showtabs=false,
+% stepnumber=0,
+% stringstyle=\color{mymauve},        % string literal style
+% tabsize=2,
+% title=\lstname
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+%\setmainfont{Cormorant Upright}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{ \Large  UM--SJTU Joint Institute \vspace*{0.3em}} \\
+\Large  VV557 Methods of Applied Math II\\
+\end{large}
+\hrulefill
+
+\vspace*{2cm}
+\begin{Large}
+\sc{{Assignment 5}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{Large}
+\sc{{Group 22}}\\
+\end{Large}
+\vspace*{0.5cm}
+\begin{large}
+\sc{{Sui, Zijian\ \ 515370910038}} \\
+\sc{{Wang, Tianze\ \ 515370910202}} \\
+\sc{{Xu, Yisu \ \ 118370910021}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\normalsize
+\section{}
+$L^*$ is the same as $L$ since $a_1 = a_0 = 0$.
+\[
+    L^* = \frac{d^2}{dx^2}
+\]
+Green's formula thus becomes
+\[
+	\int_0^1 (vLu-uL^*v) = \int_0^1 (vu''-uv'')=v(1)u'(1)-u(1)v'(1)-v(0)u'(0)+u(0)v'(0)    
+\]    
+The set $M$ consists of all functions $u$ s.t.
+\[
+	u(0)=0
+\]
+Apply these constraints, the right hand side simplifies to
+\[
+	v(1)u'(1)-u(1)v'(1)-v(0)u'(0)
+\]
+where $u'(1),u(1),u(0)$ are arbitrary. The adjoint boundary functionals can then be expressed as
+\[
+\left\{
+\begin{array}{c}
+B_1^*v = v(1)=0\\
+B_2^*v = v'(1)=0\\
+B_3^*v = v(0)=0
+\end{array}
+\right.
+\]
+\section{}
+\subsection{}
+$g(x;\xi)$ should satisfy
+\[
+	\left\{
+	\begin{aligned}
+	& L g(x;\xi) = \delta(x-\xi)\\
+	& g(0) = g'''(0) = g(1) = g''(1) = 0\\
+	\end{aligned}
+	\right.
+\]
+The solution is in the form of 
+\[
+	g(x;\xi) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ a x^3 + bx^2+cx+d
+\]		
+where $a,b,c,d$ are real numbers. Plug in the conditions, it will yield to
+\[\left\{
+	\begin{aligned}
+	&u(0) = 0     &\Rightarrow \quad& d = 0\\
+	&u'''(0) = 0  &\Rightarrow \quad&a = 0 \\
+	&u(1) = 0     &\Rightarrow \quad&\frac{(1-\xi)^3}{6}+b+c = 0\\
+	&u''(1) = 0   &\Rightarrow \quad&1-\xi+2b = 0 
+	\end{aligned}
+  \right.
+\]
+So 
+\[
+	g(x;\xi) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ \frac{\xi-1}{2} x^2+\frac{\xi^3-3\xi^2+2}{6}x
+\]
+\subsection{}
+Through \textit{Integral by parts}
+\begin{align*}
+\int u^{(4)}v &=u^{(3)}v -\int u^{(3)}v' \\
+&=u^{(3)}v - u^{(2)}v' + \int u^{(2)}v^{(2)} \\
+&=u^{(3)}v - u^{(2)}v' + u'v^{(2)}-\int u'v^{(3)} \\
+&=u^{(3)}v - u^{(2)}v' + u'v^{(2)}-uv^{(3)} +\int uv^{(4)} \\
+\end{align*}
+Since we have 
+\[
+	L^* = L =  \frac{d^4}{dx^4}
+\]	
+So Greens' formula is
+\[
+	\int vLu-uL^*v = u^{(3)}v - u^{(2)}v' + u'v^{(2)}-uv^{(3)}
+\]
+Plug in the boundaries $0$ and $1$,
+\[\begin{aligned}
+	\int_0^1 vLu-uL^*v =\quad& u^{(3)}(0)v(0) - u^{(2)}(0)v'(0) + u'(0)v^{(2)}(0)-u(0)v^{(3)}(0)\\& - \left(u^{(3)}(1)v(1) - u^{(2)}(1)v'(1) + u'(1)v^{(2)}(1)-u(1)v^{(3)}(1)\right)
+\end{aligned}
+\]
+With boundary conditions 
+\begin{align*}
+B_{1} u=u(0), \quad B_{2} u=u^{\prime \prime \prime}(0), \quad B_{3}=u(1), \quad B_{4}=u^{\prime \prime}(1)
+\end{align*}
+The RHS of green's formula then becomes
+\[
+	- u^{(2)}(0)v'(0) + u'(0)v^{(2)}(0)-u^{(3)}(1)v(1)-u'(1)v^{(2)}(1)
+\]
+which is independent of $u$. So the boundary conditions are 
+\[
+	\left\{
+	\begin{aligned}
+	&B_1^* v = v'(0) = 0\\
+	&B_2^* v = v^{(2)}(0) = 0\\
+	&B_3^* v = v(1) = 0\\
+	&B_4^* v = v^{(2)}(1) = 0\\
+	\end{aligned}
+	\right.
+\]
+With the same strategy, we calculate $v(x) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ a x^3 + bx^2+cx+d$
+\[\left\{
+	\begin{aligned}
+	&v'(0) = 0     &\Rightarrow \quad& c = 0\\
+	&v''(0) = 0  &\Rightarrow \quad&b = 0 \\
+	&v(1) = 0     &\Rightarrow \quad&\frac{(1-\xi)^3}{6}+a+d = 0\\
+	&v''(1) = 0   &\Rightarrow \quad&1-\xi+6a = 0 
+	\end{aligned}
+  \right.
+\]
+So the solution is given as 
+\[
+	g^*(x;\xi) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ \frac{\xi-1}{6} x^3+\frac{\xi^3-3\xi^2+2\xi}{6}
+\]
+\subsection{}
+It is always true for adjoint Green function,
+\[
+	g^*(x,\xi) = g(\xi,x)
+\]
+If we want 
+\[
+	g(x,\xi) = g(\xi,x)
+\]
+This means $g = g^*$. However, from our previous calculation, $g\neq g^*$. which proves it's impossible for \[
+	g(x,\xi) = g(\xi,x)
+\]
+\qedhere
+\end{document}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
