@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1554542012 "HW5.tex" "HW5.pdf" "HW5" 1554551495
+["pdflatex"] 1554866002 "HW5.tex" "HW5.pdf" "HW5" 1554866005
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -145,6 +145,9 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/hyperref.cfg" 1254097189 235 6031e5765137be07eed51a510b2b8fb7 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg" 1434304428 1827 d72ad54409ca5c1068a1939c63441bd2 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty" 1434304428 80336 ff90c926c3d7bfdaa3d80ca57123b0bb ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty" 1434304428 93445 48e5be20ba2d0a2ca5c4ce7e292a4bbc ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty" 1434304428 90665 9ccb99340dc741fc0a15edb411365e94 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang3.sty" 1434304428 87367 4ae6f7be2500b80e72633dfead8e6c4f ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty" 1434304428 77028 c3eb00afb55a32bc13ca8da7f5234377 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype-xetex.def" 1463263853 14059 c14dc3a1ef141f6c38c00a4aa2d88804 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/microtype/microtype.cfg" 1463263853 23387 9deaa7c030891bce421bba5f9c5433a7 ""
@@ -182,12 +185,12 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1484319860 3520381 ff8107c8aac6ea0a9b25c7e51d4d2ff4 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "HW5.aux" 1554542014 1075 ad9322ce714663a381350a3dd021f150 ""
-  "HW5.out" 1554542014 217 ab8fc936ff01d3168a6e882cdf73c634 ""
-  "HW5.tex" 1554551494 6949 ce08ab61a182fde0d519ababed491d6f ""
+  "HW5.aux" 1554866004 1247 c1e37c575ffb418f0fc5969553321db5 ""
+  "HW5.out" 1554866004 287 776b6eb78849e86af8ecba52fa3aa5f6 ""
+  "HW5.tex" 1554866002 9938 2886cd85380350fdec3465264a576b72 ""
   "Logo2.png" 1552735680 23557 e963250a164034ed0f577fe4308eb37b ""
   (generated)
-  "HW5.out"
   "HW5.aux"
-  "HW5.log"
+  "HW5.out"
   "HW5.pdf"
+  "HW5.log"
