@@ -330,22 +330,198 @@ So the adjoint problem $M^*$ is given as
 	&B_1^* = v(0)+v(1)\\
 	&B_2^* = v'(0)+v'(1)
 \end{align*}
-Solving this equation, it will lead to two non-trivial solutions:
+Solving this equation, it will lead to two orthonormal non-trivial solutions:
 \begin{align*}
-	v_{1} = c_1\cdot \cos(\pi x)\\
-	v_{2} = c_2\cdot \sin(\pi x)
+	v_{1} = \sqrt{2} \cdot \cos(\pi x)\\
+	v_{2} = \sqrt{2} \cdot \sin(\pi x)
 \end{align*}
+The fundamental solution $E(x;\xi)$ is calculated at $x=\xi$ with $u(\xi)=0$ and $u'(\xi)=1$, so it is 
+\[
+	E(x;\xi)=H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}
+\]
 Next we find $w_1$ and $w_2$ s.t.
 \begin{align*}
-	w_1''+\pi^2 w_1 = L w_1 = v_1 = c_1\cdot \cos(\pi x)\\
-	w_2''+\pi^2 w_2 = L w_2 = v_2 = c_2\cdot \sin(\pi x)
+	w_1''+\pi^2 w_1 = L w_1 = v_1 = \sqrt{2}\cdot \cos(\pi x)\\
+	w_2''+\pi^2 w_2 = L w_2 = v_2 = \sqrt{2}\cdot \sin(\pi x)
 \end{align*}
 Solving by Mathematica with code
 \begin{lstlisting}[language = Mathematica]
 DSolve[y''[x] + \[Pi]^2 y[x] == c*Sin[\[Pi] x], y[x], x]
 DSolve[y''[x] + \[Pi]^2 y[x] == c*Cos[\[Pi] x], y[x], x]
 \end{lstlisting}
+It gives two solutions
+\begin{align*}
+   	w_1 &= \frac{2 \pi  \left(c x+2 \pi  c_2\right) \sin (\pi  x)+\left(c+4
+   	\pi ^2 c_1\right) \cos (\pi  x)}{4 \pi ^2} 
+   	\\&= \frac{-2 \sqrt{2}\pi  x\cos(\pi x)+\sqrt{2}\sin{\pi x}}{4 \pi^2} + c_1 \cos (\pi x) + c_2 \sin (\pi x)\\
+   	w_2 &= \frac{\sqrt{2}\cos(\pi x)+2 \pi \sqrt{2}x \sin(\pi x)}{4 \pi^2}+c_3 \cos (\pi x) + c_4 \sin (\pi x)\\
+\end{align*}
+Here we can set $c_1$ and $c_2$ to 0 since we are focusing on non-zero parts, and $\cos(\pi x)$ and $\sin(\pi x)$ will be added to the equation later as a term.
+% \begin{align*}
+% 	g_M(x;\xi) &= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi} - v_1(\xi)w_1(x) - v_2(\xi)w_2(x) +c_1 \cos(\pi x)+c_2 \sin(\pi x) \\
+% 	&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}-c_1\cdot cos(\pi \xi)\cdot \frac{2 \pi c_{1} x \sin (\pi x)+c_1 \cos \pi x}{4 \pi^{2}}\\
+% 	&\quad -c_2\cdot \sin(\pi \xi) \cdot (-\frac{c_2 x}{2\pi}\cos(\pi x)) +c_3 \cos(\pi x) + c_4 \sin(\pi x)\\
+% \end{align*}
+\begin{align*}
+	g_M(x;\xi) &= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi} - v_1(\xi)w_1(x) - v_2(\xi)w_2(x) +c_1 \cos(\pi x)+c_2 \sin(\pi x) \\
+	&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}- \frac{\cos(\pi(x-\xi))+2 \pi x \sin(\pi (x-\xi))}{2 \pi^2} +c_1 \cos(\pi x)+ c_2\sin(\pi x)
+\end{align*}
+We need the above equation to satisfy 
+\[
+	B_1g=B_2g= 0
+\]
+, which means 
+\[
+	g(0)+g(1) = 0 \qquad g'(0)+g'(1) = 0
+\] 
+We plug in the conditions, it yield to a set of equation
+\[
+\left\{
+\begin{aligned}
+	&g(1)+g(0) = -\frac{\cos(-\pi \xi)+\cos(\pi(1-\xi))+2\pi \sin(\pi(1-\xi))}{2\pi^2}+ \frac{sin(\pi(1-\xi))}{\pi} \\
+	&g'(1)+g'(0)=cos(\pi(1-\xi)) - \frac{2 \pi^2 \cos(\pi(1- \xi))}{2 \pi^2}+2c_2 \pi \cos(\pi x) = 2 c_2 \pi \cos(\pi x)
+	\end{aligned}\right.
+\]	
+The first equation evaluates to 0 $\forall x, \xi$. So we can set $c_3 = 0$, then solve 
+\[
+	c_2 = 0
+\]	
+So we can conclude
+% \begin{align*}
+% 	g_M(x;\xi)
+% 	&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}+2 \cos(\pi (1- \xi))\cdot  \frac{2 \pi  x \sin (\pi x)+ \cos \pi x}{4 \pi^{2}}\\
+% 	&\quad +{2 \sin(\pi (1- \xi))} \cdot (\frac{ x}{2\pi}\cos(\pi x))  + c \sin(\pi x) \\
+% 	&=H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}+   \frac{\cos(\pi (1- \xi))\cdot(  x \sin (\pi x)+ \cos \pi x)}{ \pi}\\
+% 	&\quad +  \frac{\sin(\pi (1- \xi)) \cdot x}{\pi}\cos(\pi x)  + c \sin(\pi x) \\
+% \end{align*}
+\begin{align*}
+	g_M(x;\xi)
+	&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}- \frac{\cos(\pi(x-\xi))+2 \pi x \sin(\pi (x-\xi))}{2 \pi^2} +c \cos(\pi x)
+\end{align*}
+where $c \in \mathbb{R}$ is arbitrary
+\section{}
+\subsection{}
+The nontrivial solutions: $u^{(1)}=1,\ u^{(2)}=x$
+\newpage
+\subsection{}
+We want to show that the problem is self-adjoint, we need to show that $L=L^*$:
 
+
+\begin{align*}
+	J\left(u,v\right){\vert{}}_0^1&=u^{\left(3\right)}\left(1\right)v\left(1\right)-u^{''}\left(1\right)v^{'}\left(1\right)+u^{'}\left(1\right)v^{''}\left(1\right)-u\left(1\right)v^{\left(3\right)}\left(1\right)-u^{\left(3\right)}\left(0\right)v\left(0\right)\\
+&+u^{''}\left(0\right)v^{'}\left(0\right)-u^{'}\left(0\right)v^{''}\left(0\right)+u\left(0\right)v^{\left(3\right)}\left(0\right)
+\end{align*}
+Then it yields to
+\[
+\left\{\begin{array}{l}B_1^*=v^{''}\left(0\right) \\
+B_2^*=v^{\left(3\right)}\left(0\right) \\
+B_3^*=v^{''}\left(1\right) \\
+B_4^*=v^{\left(3\right)}\left(1\right)\end{array}\right.
+\]
+and
+\[
+L=L^*
+\]
+
+So $M=M^*$. So, the problem is self-adjoint.
+\subsection{}
+iii) Constructing the Modified Green Function:
+
+{\raggedright
+
+
+\[
+v^{\left(1\right)}=1,\ v^{\left(2\right)}=2\sqrt{3}(\xi{}-\frac{1}{2})
+\]
+
+are the k non-trivial, orthonormalized solutions of the adjoint problem.
+}
+
+{\raggedright
+Find a fundamental solution $E\left(x,\xi{}\right)$such that
+$LE=\delta{}(x-\xi{})$.
+}
+
+{\raggedright
+
+
+\[
+u_{\xi{}}\left(x\right)=\frac{1}{6}{\left(x-\xi{}\right)}^3
+\]
+
+, so $E\left(x,\xi{}\right)=\frac{1}{6}{H(x-\xi{})\left(x-\xi{}\right)}^3$
+}
+
+{\raggedright
+Find 2 solutions of the inhomogeneous equations Lw=v:
+$w^{\left(1\right)}=\frac{x^4}{24},\
+w^{(2)}=\frac{\sqrt{3}x^5}{60}-\frac{\sqrt{3}x^4}{24}$
+}
+
+{\raggedright
+Find p independent solutions of the homogeneous equation Lu = 0 and add them to
+$E\left(x,\xi{}\right)-\left(v^{\left(1\right)}\left(\xi{}\right)w^{\left(1\right)}\left(x\right)+v^{\left(2\right)}\left(\xi{}\right)w^{\left(2\right)}\left(x\right)\right)\
+$in order to satisfy the boundary conditions $B_1g=…=B_pg=0$.
+}
+
+
+\[
+g_m=\frac{1}{6}{H\left(x-\xi{}\right)\left(x-\xi{}\right)}^3-\frac{x^4}{24}-2\sqrt{3}\left(\xi{}-\frac{1}{2}\right)\left(\frac{\sqrt{3}x^5}{60}-\frac{\sqrt{3}x^4}{24}\right)+{ax}^3+{bx}^2+cx+d
+\]
+
+
+{\raggedright
+
+
+\[
+\left\{\begin{array}{l}B_1g_m=0 \\
+B_2g_m=0 \\
+B_3g_m=0 \\
+B_4g_m=0\end{array}\right.
+\]
+
+=$>$ $\left\{\begin{array}{l}a=0 \\
+b=0 \\
+c\ is\ arbitrary \\
+d\ is\ arbitrary\end{array}\right.$
+}
+
+{\raggedright
+So,
+$g_m=\frac{1}{6}{H\left(x-\xi{}\right)\left(x-\xi{}\right)}^3-\frac{x^4}{24}-\left(2\xi{}-1\right)\left(\frac{x^5}{20}-\frac{x^4}{8}\right)$.
+}
+\subsection{}
+
+{\raggedright
+We know that $u=\int_0^1g_m\left(x,\xi{}\right)f\left(\xi{}\right)d\xi{}$
+}
+
+{\raggedright
+
+
+\[
+u^{(4)}=f
+\]
+
+, where f satisfies the solvability conditions:
+}
+
+{\raggedright
+
+
+\[
+\left\{\begin{array}{l}\int_0^1f\left(\xi{}\right)v^{(1)}d\xi{}=0 \\
+\int_0^1f\left(\xi{}\right)v^{(2)}d\xi{}=0\end{array}\right.
+\]
+
+=$>$$\left\{\begin{array}{l}\int_0^1f\left(\xi{}\right)d\xi{}=0 \\
+\int_0^1f\left(\xi{}\right)2\sqrt{3}(\xi{}-\frac{1}{2})d\xi{}=0\end{array}\right.$
+}
+
+{\raggedright
+So,
+$u=\int_0^1(\frac{1}{6}{H\left(x-\xi{}\right)\left(x-\xi{}\right)}^3-\frac{x^4}{24}-\left(2\xi{}-1\right)\left(\frac{x^5}{20}-\frac{x^4}{8}\right))f\left(\xi{}\right)d\xi{}=\int_0^x\frac{1}{6}{\left(x-\xi{}\right)}^3f\left(\xi{}\right)d\xi{}$
+}
 \end{document}
 
 
