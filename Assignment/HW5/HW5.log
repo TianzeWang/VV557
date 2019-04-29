@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  11 APR 2019 09:54
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.13)  11 APR 2019 10:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1731,18 +1731,18 @@ LaTeX Font Warning: Font shape `EU1/Consolas(0)/bx/n' undefined
 (Font)              using `EU1/Consolas(0)/m/n' instead on input line 349.
 
 [4] [5]
-Overfull \hbox (44.90802pt too wide) in paragraph at lines 462--466
+Overfull \hbox (44.90802pt too wide) in paragraph at lines 458--462
 []\EU1/Optima(1)/m/n/10 Find p independent solutions of the homogeneous equatio
 n Lu = 0 and add them to $\OML/cmm/m/it/10 E [] \OMS/cmsy/m/n/10 ^^@ [] $\EU1/O
 ptima(1)/m/n/10 in
  []
 
 [6] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 525.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 525.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 521.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 521.
  (./HW5.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 525.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 525.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 521.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 521.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1755,7 +1755,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  46164 strings out of 493591
  953414 string characters out of 6143546
- 1190478 words of memory out of 5000000
+ 1191478 words of memory out of 5000000
  48996 multiletter control sequences out of 15000+600000
  6482 words of font info for 62 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191

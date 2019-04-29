@@ -1,0 +1,1623 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>body {
+  max-width: 980px;
+  border: 1px solid #ddd;
+  outline: 1300px solid #fff;
+  margin: 16px auto;
+}
+
+body .markdown-body
+{
+  padding: 45px;
+}
+
+@font-face {
+  font-family: fontawesome-mini;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+.markdown-body {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  color: #333333;
+  overflow: hidden;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body b,
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body sub,
+.markdown-body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+.markdown-body sup {
+  top: -0.5em;
+}
+.markdown-body sub {
+  bottom: -0.25em;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body .codehilitetable {
+  border: 0;
+  border-spacing: 0;
+}
+
+.markdown-body .codehilitetable tr {
+  border: 0;
+}
+
+.markdown-body .codehilitetable pre,
+.markdown-body .codehilitetable div.codehilite {
+  margin: 0;
+}
+
+.markdown-body .linenos,
+.markdown-body .code,
+.markdown-body .codehilitetable td {
+  border: 0;
+  padding: 0;
+}
+
+.markdown-body td:not(.linenos) .linenodiv {
+  padding: 0 !important;
+}
+
+.markdown-body .code {
+  width: 100%;
+}
+
+.markdown-body .linenos div pre,
+.markdown-body .linenodiv pre,
+.markdown-body .linenodiv {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.markdown-body .code div pre,
+.markdown-body .code div {
+  border: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 3px;
+  -moz-border-radius-bottomright: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.markdown-body * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body input {
+  font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.4;
+}
+
+.markdown-body a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:focus,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before,
+.markdown-body hr:after {
+  display: table;
+  content: " ";
+}
+
+.markdown-body hr:after {
+  clear: both;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code,
+.markdown-body pre,
+.markdown-body samp {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body kbd {
+  background-color: #e7e7e7;
+  background-image: -moz-linear-gradient(#fefefe, #e7e7e7);
+  background-image: -webkit-linear-gradient(#fefefe, #e7e7e7);
+  background-image: linear-gradient(#fefefe, #e7e7e7);
+  background-repeat: repeat-x;
+  border-radius: 2px;
+  border: 1px solid #cfcfcf;
+  color: #000;
+  padding: 3px 5px;
+  line-height: 10px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  display: inline-block;
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body .headerlink {
+  font: normal 400 16px fontawesome-mini;
+  vertical-align: middle;
+  margin-left: -16px;
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  opacity: 0;
+  color: #333;
+}
+
+.markdown-body .headerlink:focus {
+  outline: none;
+}
+
+.markdown-body h1 .headerlink {
+  margin-top: 0.8rem;
+}
+
+.markdown-body h2 .headerlink,
+.markdown-body h3 .headerlink {
+  margin-top: 0.6rem;
+}
+
+.markdown-body h4 .headerlink {
+  margin-top: 0.2rem;
+}
+
+.markdown-body h5 .headerlink,
+.markdown-body h6 .headerlink {
+  margin-top: 0;
+}
+
+.markdown-body .headerlink:hover,
+.markdown-body h1:hover .headerlink,
+.markdown-body h2:hover .headerlink,
+.markdown-body h3:hover .headerlink,
+.markdown-body h4:hover .headerlink,
+.markdown-body h5:hover .headerlink,
+.markdown-body h6:hover .headerlink {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre,
+.markdown-body .admonition {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.markdown-body code,
+.markdown-body samp {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .codehilite {
+  margin-bottom: 16px;
+}
+
+.markdown-body .codehilite pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .codehilite pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+/* Admonition */
+.markdown-body .admonition {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  position: relative;
+  border-radius: 3px;
+  border: 1px solid #e0e0e0;
+  border-left: 6px solid #333;
+  padding: 10px 10px 10px 30px;
+}
+
+.markdown-body .admonition table {
+  color: #333;
+}
+
+.markdown-body .admonition p {
+  padding: 0;
+}
+
+.markdown-body .admonition-title {
+  font-weight: bold;
+  margin: 0;
+}
+
+.markdown-body .admonition>.admonition-title {
+  color: #333;
+}
+
+.markdown-body .attention>.admonition-title {
+  color: #a6d796;
+}
+
+.markdown-body .caution>.admonition-title {
+  color: #d7a796;
+}
+
+.markdown-body .hint>.admonition-title {
+  color: #96c6d7;
+}
+
+.markdown-body .danger>.admonition-title {
+  color: #c25f77;
+}
+
+.markdown-body .question>.admonition-title {
+  color: #96a6d7;
+}
+
+.markdown-body .note>.admonition-title {
+  color: #d7c896;
+}
+
+.markdown-body .admonition:before,
+.markdown-body .attention:before,
+.markdown-body .caution:before,
+.markdown-body .hint:before,
+.markdown-body .danger:before,
+.markdown-body .question:before,
+.markdown-body .note:before {
+  font: normal normal 16px fontawesome-mini;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  line-height: 1.5;
+  color: #333;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.markdown-body .admonition:before {
+  content: "\f056\00a0";
+  color: 333;
+}
+
+.markdown-body .attention:before {
+  content: "\f058\00a0";
+  color: #a6d796;
+}
+
+.markdown-body .caution:before {
+  content: "\f06a\00a0";
+  color: #d7a796;
+}
+
+.markdown-body .hint:before {
+  content: "\f05a\00a0";
+  color: #96c6d7;
+}
+
+.markdown-body .danger:before {
+  content: "\f057\00a0";
+  color: #c25f77;
+}
+
+.markdown-body .question:before {
+  content: "\f059\00a0";
+  color: #96a6d7;
+}
+
+.markdown-body .note:before {
+  content: "\f040\00a0";
+  color: #d7c896;
+}
+
+.markdown-body .admonition::after {
+  content: normal;
+}
+
+.markdown-body .attention {
+  border-left: 6px solid #a6d796;
+}
+
+.markdown-body .caution {
+  border-left: 6px solid #d7a796;
+}
+
+.markdown-body .hint {
+  border-left: 6px solid #96c6d7;
+}
+
+.markdown-body .danger {
+  border-left: 6px solid #c25f77;
+}
+
+.markdown-body .question {
+  border-left: 6px solid #96a6d7;
+}
+
+.markdown-body .note {
+  border-left: 6px solid #d7c896;
+}
+
+.markdown-body .admonition>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body .admonition>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* progress bar*/
+.markdown-body .progress {
+  display: block;
+  width: 300px;
+  margin: 10px 0;
+  height: 24px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #ededed;
+  position: relative;
+  box-shadow: inset -1px 1px 3px rgba(0, 0, 0, .1);
+}
+
+.markdown-body .progress-label {
+  position: absolute;
+  text-align: center;
+  font-weight: bold;
+  width: 100%; margin: 0;
+  line-height: 24px;
+  color: #333;
+  text-shadow: 1px 1px 0 #fefefe, -1px -1px 0 #fefefe, -1px 1px 0 #fefefe, 1px -1px 0 #fefefe, 0 1px 0 #fefefe, 0 -1px 0 #fefefe, 1px 0 0 #fefefe, -1px 0 0 #fefefe, 1px 1px 2px #000;
+  -webkit-font-smoothing: antialiased !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.markdown-body .progress-bar {
+  height: 24px;
+  float: left;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #96c6d7;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), inset 0 -1px 0 rgba(0, 0, 0, .1);
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(
+    135deg, rgba(255, 255, 255, .4) 27%,
+    transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%,
+    transparent 77%, transparent
+  );
+  background-image: -moz-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -ms-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: -o-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, .4) 27%, transparent 27%,
+    transparent 52%, rgba(255, 255, 255, .4) 52%,
+    rgba(255, 255, 255, .4) 77%, transparent 77%,
+    transparent
+  );
+}
+
+.markdown-body .progress-100plus .progress-bar {
+  background-color: #a6d796;
+}
+
+.markdown-body .progress-80plus .progress-bar {
+  background-color: #c6d796;
+}
+
+.markdown-body .progress-60plus .progress-bar {
+  background-color: #d7c896;
+}
+
+.markdown-body .progress-40plus .progress-bar {
+  background-color: #d7a796;
+}
+
+.markdown-body .progress-20plus .progress-bar {
+  background-color: #d796a6;
+}
+
+.markdown-body .progress-0plus .progress-bar {
+  background-color: #c25f77;
+}
+
+.markdown-body .candystripe-animate .progress-bar{
+  -webkit-animation: animate-stripes 3s linear infinite;
+  -moz-animation: animate-stripes 3s linear infinite;
+  animation: animate-stripes 3s linear infinite;
+}
+
+@-webkit-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@-moz-keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+@keyframes animate-stripes {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 60px 0;
+  }
+}
+
+.markdown-body .gloss .progress-bar {
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, .7),
+    inset 0 -12px 0 rgba(0, 0, 0, .05);
+}
+
+/* MultiMarkdown Critic Blocks */
+.markdown-body .critic_mark {
+  background: #ff0;
+}
+
+.markdown-body .critic_delete {
+  color: #c82829;
+  text-decoration: line-through;
+}
+
+.markdown-body .critic_insert {
+  color: #718c00 ;
+  text-decoration: underline;
+}
+
+.markdown-body .critic_comment {
+  color: #8e908c;
+  font-style: italic;
+}
+
+.markdown-body .headeranchor {
+  font: normal normal 16px fontawesome-mini;
+  line-height: 1;
+  display: inline-block;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.headeranchor:before {
+  content: '\e157';
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 4px 0.25em -20px;
+  vertical-align: middle;
+}
+
+/* Media */
+@media only screen and (min-width: 480px) {
+  .markdown-body {
+    font-size:14px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .markdown-body {
+    font-size:16px;
+  }
+}
+
+@media print {
+  .markdown-body * {
+    background: transparent !important;
+    color: black !important;
+    filter:none !important;
+    -ms-filter: none !important;
+  }
+
+  .markdown-body {
+    font-size:12pt;
+    max-width:100%;
+    outline:none;
+    border: 0;
+  }
+
+  .markdown-body a,
+  .markdown-body a:visited {
+    text-decoration: underline;
+  }
+
+  .markdown-body .headeranchor-link {
+    display: none;
+  }
+
+  .markdown-body a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  .markdown-body abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .markdown-body .ir a:after,
+  .markdown-body a[href^="javascript:"]:after,
+  .markdown-body a[href^="#"]:after {
+    content: "";
+  }
+
+  .markdown-body pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  .markdown-body pre,
+  .markdown-body blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+    page-break-inside: avoid;
+  }
+
+  .markdown-body .progress,
+  .markdown-body .progress-bar {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .markdown-body .progress {
+    border: 1px solid #ddd;
+  }
+
+  .markdown-body .progress-bar {
+    height: 22px;
+    border-right: 1px solid #ddd;
+  }
+
+  .markdown-body tr,
+  .markdown-body img {
+    page-break-inside: avoid;
+  }
+
+  .markdown-body img {
+    max-width: 100% !important;
+  }
+
+  .markdown-body p,
+  .markdown-body h2,
+  .markdown-body h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .markdown-body h2,
+  .markdown-body h3 {
+    page-break-after: avoid;
+  }
+}
+</style><style>/*GitHub*/
+.codehilite {background-color:#fff;color:#333333;}
+.codehilite .hll {background-color:#ffffcc;}
+.codehilite .c{color:#999988;font-style:italic}
+.codehilite .err{color:#a61717;background-color:#e3d2d2}
+.codehilite .k{font-weight:bold}
+.codehilite .o{font-weight:bold}
+.codehilite .cm{color:#999988;font-style:italic}
+.codehilite .cp{color:#999999;font-weight:bold}
+.codehilite .c1{color:#999988;font-style:italic}
+.codehilite .cs{color:#999999;font-weight:bold;font-style:italic}
+.codehilite .gd{color:#000000;background-color:#ffdddd}
+.codehilite .ge{font-style:italic}
+.codehilite .gr{color:#aa0000}
+.codehilite .gh{color:#999999}
+.codehilite .gi{color:#000000;background-color:#ddffdd}
+.codehilite .go{color:#888888}
+.codehilite .gp{color:#555555}
+.codehilite .gs{font-weight:bold}
+.codehilite .gu{color:#800080;font-weight:bold}
+.codehilite .gt{color:#aa0000}
+.codehilite .kc{font-weight:bold}
+.codehilite .kd{font-weight:bold}
+.codehilite .kn{font-weight:bold}
+.codehilite .kp{font-weight:bold}
+.codehilite .kr{font-weight:bold}
+.codehilite .kt{color:#445588;font-weight:bold}
+.codehilite .m{color:#009999}
+.codehilite .s{color:#dd1144}
+.codehilite .n{color:#333333}
+.codehilite .na{color:teal}
+.codehilite .nb{color:#0086b3}
+.codehilite .nc{color:#445588;font-weight:bold}
+.codehilite .no{color:teal}
+.codehilite .ni{color:purple}
+.codehilite .ne{color:#990000;font-weight:bold}
+.codehilite .nf{color:#990000;font-weight:bold}
+.codehilite .nn{color:#555555}
+.codehilite .nt{color:navy}
+.codehilite .nv{color:teal}
+.codehilite .ow{font-weight:bold}
+.codehilite .w{color:#bbbbbb}
+.codehilite .mf{color:#009999}
+.codehilite .mh{color:#009999}
+.codehilite .mi{color:#009999}
+.codehilite .mo{color:#009999}
+.codehilite .sb{color:#dd1144}
+.codehilite .sc{color:#dd1144}
+.codehilite .sd{color:#dd1144}
+.codehilite .s2{color:#dd1144}
+.codehilite .se{color:#dd1144}
+.codehilite .sh{color:#dd1144}
+.codehilite .si{color:#dd1144}
+.codehilite .sx{color:#dd1144}
+.codehilite .sr{color:#009926}
+.codehilite .s1{color:#dd1144}
+.codehilite .ss{color:#990073}
+.codehilite .bp{color:#999999}
+.codehilite .vc{color:teal}
+.codehilite .vg{color:teal}
+.codehilite .vi{color:teal}
+.codehilite .il{color:#009999}
+.codehilite .gc{color:#999;background-color:#EAF2F5}
+</style><title>VV557_Notes</title></head><body><article class="markdown-body"><p>% !TEX program = xelatex
+\documentclass{article}
+\usepackage{geometry}
+\geometry{left = 2.5cm, right = 2.5cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{amsfonts,amssymb}
+\usepackage{tcolorbox}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{extarrows}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{xcolor}</p>
+<p>\newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+\newcommand{\Sangle}[1]{\langle {#1} \rangle}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Note\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{\roman{subsection}).}
+\numberwithin{equation}{section}
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+% \renewcommand\thesubsubsection{\roman{subsection}).\alph{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\newcommand{\f}{\frac}
+\newcommand{\&lt;}{\langle}
+\newcommand{\p}{\partial}
+\newcommand\supp{{\rm supp\ }}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{CMU Bright}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0em}</p>
+<p>%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwProg{Fn}{Function}{\string:}{end}
+\SetKwFunction{mstnew}{MST_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is_Connected}
+\SetKwFunction{hor}{Three_Fastest_Horses}</p>
+<p>%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%</p>
+<p>\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mywhite}{rgb}{1,1,1}
+\definecolor{myblack}{rgb}{0,0,0}
+\definecolor{myblue}{RGB}{27,154,154}
+\lstset{
+backgroundcolor=\color{white},
+basicstyle = \footnotesize\Inputmono,
+breakatwhitespace = false,
+breaklines = true,
+captionpos = b,
+commentstyle = \color{mygray}\bfseries,
+extendedchars = false,
+frame =shadowbox,
+framerule=0.5pt,
+frameround=tttt,
+keepspaces=true,
+keywordstyle=\color{myblue}\bfseries, % keyword style
+language = Verilog,                     % the language of code
+otherkeywords={string},
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny\color{mymauve},
+rulecolor=\color{black},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+stepnumber=0,
+stringstyle=\color{mymauve},        % string literal style
+tabsize=2,
+title=\lstname
+}</p>
+<p>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<p>\begin{document}
+%\setmainfont{Savoye LET}
+%\setmainfont{Cormorant Upright}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}</p>
+<p>\thispagestyle{empty}</p>
+<p>\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2}
+\end{figure}
+\hrule
+\vspace<em 0.3em="0.3em">{0.25cm}
+\sc{ \Large  UM&ndash;SJTU Joint Institute \vspace</em>} \
+\Large  VV557 Methods of Applied Math II\
+\end{large}
+\hrulefill</p>
+<p>\vspace<em 2cm="2cm">{2cm}
+\begin{Large}
+\sc{{Lecture Notes Hints}} \
+\end{Large}
+\vspace</em>
+\begin{Large}</p>
+<p>\end{Large}
+\vspace*{0.5cm}
+\begin{large}
+\sc{collected by \textbf{Tianze, Wang}}
+\end{large}
+\end{center}
+\newpage</p>
+<p>\begin{center}
+\vspace*{6em}
+Page Left blank because I want to.
+\end{center}</p>
+<p>\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\normalsize
+\section{Boundary Value Problems of Higher order $p$}
+\begin{tcolorbox}[colback=blue!10!white]
+An example problem:
+\begin{align}
+    L = D^2(b_2 D^2)+ D(b_1 D)+b_0
+\end{align}
+where $b_2,b_1,b_0$ are functions of $x$.
+\end{tcolorbox}
+We first calculate conjunction and $L^<em>$.
+\begin{align}
+    \int v L u &amp;= \int v[(b_2 u&rsquo;&lsquo;)&rsquo;&lsquo;+(b_1 u&rsquo;)&rsquo;+ b_0]\notag\
+    \int v(b_2u&rsquo;&lsquo;)&rsquo;&lsquo; &amp;= v(b_2 u&rsquo;&lsquo;)&rsquo;-\int v&rsquo;(b_2u&rsquo;&lsquo;)&rsquo;\notag \
+    &amp;=v(b_2 u&rsquo;&lsquo;)&rsquo;-v&rsquo;(b_2u&rsquo;&lsquo;) +\int v&rsquo;&lsquo;b_2u&rsquo;&lsquo; \notag\
+    &amp;= v(b_2 u&rsquo;&lsquo;)&rsquo;-v&rsquo;(b_2u&rsquo;&lsquo;)+u&rsquo;v&rsquo;&lsquo;b_2-u(v&rsquo;&lsquo;b)&rsquo; +\int(v&rsquo;&lsquo;b_2)&rsquo;&lsquo;y<br />
+\end{align}
+\section{Partial Boundary Value Problems General Notes}
+\subsection{Basic Quantities}
+\begin{tcolorbox}[colback=blue!10!white]
+\begin{equation}
+    L u :=-\nabla\cdot (p(x) \nabla u)+q(x) u
+\end{equation}
+\end{tcolorbox}
+\subsection{Derivation of Green&rsquo;s Formula}
+\begin{tcolorbox}[colback=green!10!white]
+Green&rsquo;s Formula is given as
+\begin{equation}
+    \int_{\Omega}(v L u-u L v) d x = \int_{\partial \Omega} p\left(u \frac{\partial v}{\partial n}-v \frac{\partial u}{\partial n}\right) d \sigma
+\end{equation}
+\end{tcolorbox}
+The steps are: According to divergence delta rule
+\begin{equation}
+    \nabla \cdot(f \vec{v})=f(\nabla \cdot \vec{v})+\vec{v} \cdot(\nabla f)
+\end{equation}
+Rearrange the items, it will lead to
+\begin{equation}
+    f(\nabla \cdot \vec{v})=\nabla \cdot(f \vec{v})-\vec{v} \cdot(\nabla f)
+\end{equation}
+where as $f = p$ and $\vec v = p \nabla u$
+\section{PP 330}
+To calculate a surface integral in $\mathbb{R}^n$ of $S\subset \mathbb{R}^n$ is a hypersurface.
+\subsection{Step 1: Find parametrization $\gamma$}
+\begin{align</em>}
+    \gamma :[a_1,b_1]\times &hellip; \times [a_{n+1},b_{n+1}] \rightarrow S \subset \mathbb{R}^n \
+    \gamma: (s_1,&hellip;,s_{n+1}) \mapsto \begin{pmatrix}
+    \gamma_1(s_1,&hellip;s_{n+1})\
+    \gamma_2(s_1,&hellip;s_{n+1})\
+    \gamma_3(s_1,&hellip;s_{n+1})\
+    \vdots \
+    \gamma_{n+1}(s_1,&hellip;s_{n+1})\
+    \end{pmatrix} 
+\end{align*}</p>
+<p>\begin{tcolorbox}[colback=blue!20!white]
+A simple example is given as
+\begin{align<em>}
+(\phi, \theta) = \begin{pmatrix}
+    \cos \pi \sin \theta\
+    \sin \pi \sin \theta\
+    \cos \theta
+\end{pmatrix}
+\end{align</em>}
+\end{tcolorbox}
+\subsection{Step 2: Find a normal vector $\vec{n}\perp S$}
+\subsection{}
+\begin{align<em>}
+    \int_S f ds = \int \int \int &hellip;\int f(\gamma(s_1,&hellip;,s_{n+1})) \det(\frac{\partial \gamma}{\partial s_1},&hellip;,\vec{a})
+\end{align</em>}</p>
+<p>\section{PP 366}
+\begin{align<em>}
+    \int_{\varphi} f ds = \int_a^b f \circ \gamma(t)\cdot  |\gamma&rsquo;(t)|dt
+\end{align</em>}
+where $\varphi$ indicates curve/line integral on $\mathbb{R}^n$. by
+[
+    \gamma (t) = \begin{pmatrix}
+        t \ 0
+    \end{pmatrix}
+]
+$t \in R$, $\gamma&rsquo;(t) = \begin{pmatrix} 1\0 \end{pmatrix}$, $|\gamma&rsquo;(t) | = 1$.
+So
+\begin{align<em>}
+    &amp;\int_{\partial \mathbb{H}} h(\cdot ) \frac{\partial g(x;\cdot )}{\partial n} ds \
+    &amp;= \int_{-\infty}^\infty h(\gamma(t))\cdot \frac{-\partial g(x;\cdot )}{\partial \xi_2}|_{\gamma(t)} dt \
+    &amp;= - \int <em _xi_2="\xi_2">{- \infty }^{\infty}h(\xi_2)\cdot \frac{-\partial g(x;\xi_1,\xi_2 )}{\partial \xi_1}|</em> dt \
+\end{align</em>}</p>
+<p>\section{Method of Images}
+\begin{tcolorbox}[colback=green!10!white]
+This part is to raise an intuitive understanding of \textbf{Method of Images} chapter.
+\end{tcolorbox}
+Electrostatics by Maxwell
+[
+    - \Delta \underbrace{V}<em _text_charge="\text{charge" density="density">{\text{potential}} = 4 \pi \underbrace{\rho}</em>}
+]
+For a unit point charge located at $\xi$, it has charge density $\delta(x- \xi)$. The potential for a point charge is
+\begin{align<em>}
+    V(x;\xi) = \frac{1}{4 \pi \varepsilon_0}\cdot  \frac{1}{|x-\xi|}
+\end{align</em>}</p>
+<p>This solves $-\Delta V = 4 \pi \delta(x-\xi)$</p>
+<p>\begin{tcolorbox}[colback = blue!10!white]
+E.g. a charge of 1 Coulomb at $\xi$ and 2 Coulomb at $\xi^<em>$,
+[
+    - \Delta V = 4 \pi (\delta(x- \xi)+ 2 \delta(x- \xi^</em>))
+]
+which is also taken as 
+[
+    V = V_1 + V_2
+]
+where according to the superposition principle
+\begin{align}
+    - \Delta V_1 = - 4 \pi \delta(x- \xi) \label{eqn1} \
+    - \Delta V_2 = - 4 \pi \delta(x- \xi^<em>) \label{eqn2} 
+\end{align}
+If $V_1$ solves equation \eqref{eqn1}, $V_2$ also solves equation \eqref{eqn2}. 
+[
+    V_2(x; \xi^</em>) = 2 V_1(x;\xi^<em>)
+]
+The effect of having a \textbf{ground plate} at x plane is equal to have a $\xi^</em>$ charge.
+\end{tcolorbox}
+\section{Neumann Problem}
+\begin{align}
+    \frac{\partial g}{\partial n} = 0 \quad g = \text{physical potential} \label{eqn4}
+\end{align}
+which means g satisfy $\Delta g = \delta$ and boundary condition.
+\begin{equation}  <br />
+    \Sangle{\nabla g, \vec{n}} = 0 \label{eqn3}
+\end{equation}
+This equation means the force perpendicular to the boundary vanishes. This equation \eqref{eqn3} means at boundary the force is 0. Please note that for Neumann problems, the potential at boundary points is arbitrary as long as \eqref{eqn4} is satisfied.</p>
+<p>\section{PP 374}
+\setcounter{equation}{0}
+\begin{center}
+\begin{tikzpicture}[domain=-2:4,line width=1pt]
+    \draw[-&gt;] (-2,0) &ndash; (4,0) node[right] {$x$};
+    \path[fill = red!10!white] (-2,0) &ndash; (4,0) &ndash; (4,3.14) &ndash; (-2,3.14) &ndash;(-2,0);
+    \draw[-&gt;] (0,-1) &ndash; (0,6) node[above] {$y$};
+    \draw[domain = -2:4,color=red] plot (\x,{3.14})
+       node[above=0.5cm, left = 0.25cm] {$y = \pi$};
+    \draw[fill, color = red] (3,1.5) circle [radius = 0.025]
+        node[below = 0.15cm,left = 0.15cm] {$(\xi_1,\xi_2)$};
+    \draw[draw = red!80!white] (-2,0) &ndash;(4,0) ;
+\end{tikzpicture}
+\end{center}
+\begin{tcolorbox}
+Consider the reflection of $\xi$ according to two boundaries.
+\end{tcolorbox}
+We have 
+\begin{equation}
+    \Delta g = \delta(x - \xi), g|_{\partial \Omega} = 0
+\end{equation}
+So 
+\begin{equation}
+    E(x,\xi) = \frac{1}{2 \pi} \ln |x- \xi|
+\end{equation}
+and the sequence of images are 
+\begin{equation<em>}
+    \xi_n^{\pm} = (\xi_1, \pm \xi_2 \pm 2 n \pi)
+\end{equation</em>}</p>
+<p>Then we have 
+\begin{align}
+    g(x;\xi) &amp;= \sum_{n \in \mathbb{Z}} E(x, \xi_n^+) - \sum_{n \in \mathbb{Z}} E(x, \xi_n^-) \notag \
+    &amp;= \frac{1}{2 \pi} \sum_{n \in \mathbb{Z}} \ln |x- \xi_n^+| -\frac{1}{2 \pi} \sum_{n \in \mathbb{Z}} \ln |x- \xi_n^-| 
+\end{align}
+\begin{tcolorbox}[colback=green!20!white]
+Two comments:
+\begin{enumerate}
+    \item We ignore convergence issue
+    \item Introduce complex numbers:
+    \begin{align}
+    \left|\begin{pmatrix}
+            x_1 \ x_2
+        \end{pmatrix}\right| = |x_1+ ix_2| = \sqrt{x_1^2+x_2^2}
+    \end{align}
+\end{enumerate}
+\end{tcolorbox}
+Then we could write 
+\begin{align<em>}
+    |x- \xi_n^+| = \left| \begin{pmatrix}
+        x_1 \ x_2
+    \end{pmatrix} - \begin{pmatrix}
+        \xi_1 \ \xi_2 + 2n \pi
+    \end{pmatrix}\right| 
+    &amp; = |(x_1 -\xi_1) + (x_2- \xi_2 + 2 n \pi)i| \
+    &amp; = |x - \xi + 2 n \pi i| \quad x = x_1 + x_2 i
+\end{align</em>}
+Similarly,
+[
+    |x - \xi_n^-| = |x - \bar{\xi} + 2n \pi i ||
+]
+So we have 
+\begin{align}
+    \sum_{n \in \mathbb{Z}} \ln |x - \xi_n^+| = \sum_{n \in \mathbb{Z}} \ln |x - \xi+ 2n \pi i| = \ln \left( \prod <em _Omega="\Omega" _delta="\delta">{n \in \mathbb{Z} } |x- \xi + 2n \pi i|\right)
+\end{align}
+Now 
+\begin{align}
+    g(x , \xi) &amp; = \frac{1}{ 2 \pi} \ln \left( \prod <em _in="\in" _mathbb_Z="\mathbb{Z" n="n">{n \in \mathbb{Z} }  \frac{|x- \xi + 2n \pi i|}{ |x- \bar{ \xi}+ 2n \pi i|}\right) \notag\
+    &amp;= \frac{1}{2 \pi} \ln \left| \left(\prod <em 0="0" Z="Z" _backslash="\backslash" _in="\in" n="n">{n \in \mathbb{Z} } \frac{\frac{x -\xi}{2 i n \pi}-1 }{\frac{x - \bar{\xi}}{2 n \pi i}-1}\right) \cdot \frac{x - \xi}{x - \bar\xi} \right|
+\end{align}
+According to Weierstraß factorization theorem,
+\begin{align}
+    &amp;\sinh(z) = \frac{e^z - e^{-z}}{2} \notag \
+    &amp;\sinh(ix) = -i \sin(x) \notag \
+    &amp;\sinh(z) = 2\cdot \prod</em> (z - i n \pi) = 2 \prod</em>\backslash 0}(1- \frac{z}{i n \pi}) \label{eqnhp}
+\end{align}
+Here \ref{eqnhp} is to evaluate hyperbolic function. 
+And we have
+\begin{align}
+    g(x, \xi) &amp;= \frac{1}{2 \pi} \ln \left| \frac{\sinh((x- \xi)/2  )}{\sinh((x- \bar\xi)/2)} \right| \notag\
+    &amp;= \frac{1}{4 \pi} \ln\left|\frac{\sinh^2((x- \xi)/2)}{\sinh^2((x- \bar\xi)/2)}\right| \label{shit}
+\end{align}
+Also, we have an equation
+\begin{align}
+    \sinh^2 (a+bi) = \cosh^2(a) - \cos^2(b) \label{sincosh}
+\end{align}
+Plug \eqref{sincosh} into \eqref{shit}
+it yields to 
+\begin{align}
+    g(x,\xi) = \frac{1}{4 \pi} \ln \left( \frac{\cosh^2((x_1 - \xi_1)/2) + \cos^2 ((x_2 - \xi_2)/2)}{\cosh^2((x_1 - \xi_1)/2) + \cos^2 ((x_2 + \xi_2)/2)} \right)
+\end{align}
+Then in this case
+\begin{align}
+    u(x) &amp;= \int</em> \frac{\partial g(x,\cdot )}{\partial n}|<em _xi_2="\xi_2">{\partial \Omega} \cdot f \label{px2}\
+    \frac{\partial g}{\partial n} &amp;= \langle \nabla g, \hat n\rangle \notag \
+    &amp;= \langle \begin{pmatrix} \frac{\partial g}{\partial \xi_1} \ \frac{\partial g}{\partial \xi_2} \end{pmatrix} , \pm \begin{pmatrix}0 \ 1\end{pmatrix}  \rangle \notag \
+    &amp;= \pm \frac{\partial g}{\partial \xi_2} 
+\end{align}
+Plug in $\xi_2 = \pi$ into \eqref{px2}
+\begin{align}
+    \frac{\partial g}{\partial \xi_2} |</em> = \frac{1}{2 \pi} \frac{sin(x_2)}{cos(x_1 - \xi_1)+ cos(x_2)}
+\end{align}
+So the final answer
+[
+    u(x) = \frac{\sin(x_2)}{2 \pi} \int_{-\infty} ^{+\infty} \left(\frac{f_1(\xi_1)}{\cosh(x_1 - \xi_1)+ \cos(x_2)}+\frac{f_2(\xi_1)}{\cosh(x_1 - \xi_1)- \cos(x_2)}\right) d \xi_1
+]
+\begin{tcolorbox}[colback=blue!10!white]
+\begin{center}
+\begin{tikzpicture}[domain=-2:2,line width=1pt]
+    \filldraw[fill=red!20!white, draw = red!80!white] (0,0) &ndash; (1,0) arc (0:180:1) &ndash; cycle
+       node[above=1cm, left = 0.5cm, color = red] {half circle};
+    \draw[-&gt;] (-2,0) &ndash; (2,0) node[right] {$x$};
+    \draw[-&gt;] (0,-1) &ndash; (0,2) node[above] {$y$};
+    \draw[draw = red!80!white] (-1,0) &ndash;(1,0) ;
+    % \draw[domain = -1:1,color=red] plot (\x,{sqrt(1-\x<em>\x)})
+    % \draw[fill, color = red] (3,1.5) circle [radius = 0.025]
+    %   node[below = 0.15cm,left = 0.15cm] {$(\xi_1,\xi_2)$};
+\end{tikzpicture}
+\end{center}
+Partial Eigenfunction Expansion (Draw a semi circle with boundary to be red here)
+$- \Delta g = \delta, \quad g|<em _r_theta_="(r,\theta)">{\partial \Omega} = 0$
+\end{tcolorbox}
+\begin{align}
+    \Delta</em> = \frac{\partial^2}{\partial r^2} + \frac{1}{r} \cdot \frac{\partial}{\partial r} + \frac{1}{r^2} \frac{\partial^2}{\partial \theta^2}
+\end{align}
+\begin{enumerate}[1)]
+\item First find partial eigenfunctions
+$- \Delta u = 0$, $u = u(r, \theta) = R(r) \cdot \Theta(\theta)$
+\begin{align}
+    &amp;\frac{\partial^2}{\partial r^2}  R \Theta+ \frac{1}{r} \cdot \frac{\partial}{\partial r} R \Theta+ \frac{1}{r^2} \frac{\partial^2}{\partial \theta^2}R \Theta = 0 \notag \
+    \Leftrightarrow&amp;R&rsquo;&lsquo;\Theta+ \frac{1}{r}R&rsquo;\Theta+ \frac{1}{r^2}R \Theta&rsquo;&lsquo; = 0\notag\
+    \Leftrightarrow &amp; \frac{r^2}{R}R&rsquo;&lsquo;+ \frac{r}{R}R&rsquo; = - \frac{\Theta&rsquo;&lsquo;}{\Theta} = \lambda \in \mathbb{R}
+\end{align}
+Then we transform into an eigenvalue problem
+\begin{align}
+    &amp;\Theta&rsquo;&lsquo;+ \lambda \Theta = 0  &amp;0 &lt; \Theta &lt; r\
+    &amp; r^2 R&rsquo;&lsquo; + r R&rsquo; - \lambda R = 0 &amp;0 &lt; r &lt; 1, R(1) = 0
+\end{align}
+\item Choose and find a set of eigenfunctions
+\begin{align}
+    \Theta_m(\theta) = \underbrace{\sqrt{\frac{2}{\pi}}}_{\text{Normalize coordinate}} \cdot \sin(m \theta),\qquad m \in \mathbb{N}^</em>
+\end{align}
+\item Expand the unknown green function in terms of eigenfunction
+\begin{align}
+    g(r, \theta; \rho, \varphi)&amp; = \sum_{n=1}^{+\infty } g_m(r, \rho , \varphi)\cdot \Theta_m(\theta) \
+    g_m(r, \rho , \varphi) &amp;= \sqrt{\frac{2}{\pi}} \int_{0}^\pi g(r, \theta; \rho, \varphi) \sin(m \theta) d \theta 
+\end{align}
+\item Determine the ODE Green&rsquo;s function problem
+\begin{align}
+    - \Delta_{(r, \theta)}g(r, \theta; \rho, \varphi) = \frac{\delta(r- \rho) \delta(\theta - \varphi)}{r} \label{star}
+\end{align}
+Multiply \eqref{star} with $\frac{2}{\pi} \sin(m \theta)$, then integrate
+\begin{align}
+    &amp;- \int \frac{2}{\pi} \sin(m \theta) \left(\Delta_{(r, \theta)} g\right) = \frac{2 }{\pi r} \sin(m \varphi) \delta(r - \rho) \notag\
+    \Leftrightarrow &amp; - \left(\frac{\partial^2}{\partial v^2}+ \frac{1}{r} \frac{\partial}{\partial r}\right) g_m(r, \rho, \varphi) - \frac{1}{r^2} \int_0^ \pi \frac{2}{\pi} \sin(m \theta) \cdot  \frac{\partial^2 g}{\partial \theta^2} d \theta = \frac{2 }{\pi r} \sin(m \varphi) \delta(r - \rho) \notag\
+    \Leftrightarrow &amp; - \frac{\partial^2}{\partial r^2} g_m + \frac{1}{r} \frac{\partial}{\partial r} g_m + \frac{m^2}{r^2} g_m = \frac{2 }{\pi r} \sin(m \varphi) \delta(r - \rho) 
+\end{align} 
+Consider $g_m = g_m(r)$, then we can write this as 
+\begin{align}
+    -r^2 g_m&rsquo;&lsquo; + r g_m + m ^2 g_m = \frac{2 }{\pi} r \sin(m \varphi)\cdot \delta(r - \rho)
+\end{align}
+Note that here
+\begin{align<em>}
+    r\cdot \delta(r- \rho) = \rho\cdot \delta( r - \rho)
+\end{align</em>}
+which is due to
+\begin{align}
+    r T_{\delta(r- \rho)} \varphi = T_{\delta(r- \rho)} (r \cdot \varphi(r)) = \rho\cdot \varphi(\rho)
+\end{align}
+Now we choose $g_m$ to satisfy
+\begin{align<em>}
+    g_m|{r = 0} = g_m|{r=1} = 0
+\end{align</em>}
+\begin{tcolorbox}
+Here for $r=0$, we cannot choose $g_m$ arbitrarily. At the origin, $\theta$ is not properly defined, 
+\end{tcolorbox}
+\item Solve it !
+\begin{align}
+    &amp;-r^2g_m&rsquo;&lsquo;-rg_m&rsquo;+m^2g_m = 0 \notag
+    \&amp;\qquad\Rightarrow g_m(r) = r^\lambda \Rightarrow \lambda = \pm m 
+\end{align}
+Then find $g_m$.
+\begin{equation}g_m(r, \rho, \varphi) = \left{
+\begin{aligned}
+    &amp;\frac{1}{m}\frac{r^m(\rho^{-m} - \rho^m)}{\pi} \sin(m \varphi) \qquad r &lt; \rho\
+    &amp;\frac{1}{m}\frac{\rho^m(r^{-m} - r^m)}{\pi} \sin(m \varphi) \qquad r &gt; \rho
+    \end{aligned}
+    \right.
+\end{equation}
+\item Put it together
+\begin{equation}
+    g(r,\theta; \rho, \varphi) = \sum_{m=1}^\infty g_M(r, \rho, \varphi) \sin(m \theta)
+\end{equation}
+\end{enumerate}
+\section{HW5 EX3}
+The Fourier expansion can be 
+\begin{align}
+    f(x)  = c_0 \langle f, 1 \rangle &amp;+ \sum_{n=1}^\infty c_n \langle f, \cos(nx) \rangle \cos(nx) \&amp;+
+    \sum_{n=1}^{\infty}d_n \langle f, \sin(nx) \rangle \sin(nx)
+\end{align}
+\section{HW5 EX5}
+iv.
+\begin{align}
+    u(x) = \int_0^1 g_M(x,\xi) f(\xi) d \xi + c_0 + c_1 x
+\end{align}
+\section{HW6 EX2}
+\begin{align}
+    u_{tt} - u_{xx} = F(x,t) \qquad u(x,0) = f(x) \quad u_t(x,0) = h(x)
+\end{align}
+The greens formula work for bounded regions. 
+\begin{center}
+\begin{tikzpicture}[domain=-2:2,line width=1pt]
+    \filldraw[fill=red!20!white, draw = red!80!white] (0,0) &ndash; (1,0) &ndash; (1,2.5) &ndash; (-1, 2.5) &ndash;(-1,0) &ndash;cycle
+       node[above = 0.25cm, right = 0.5cm, color = red] {$\Omega$};
+    \draw[-&gt;] (-2,0) &ndash; (2,0) node[right] {$x$};
+    \draw[-&gt;] (0,-1) &ndash; (0,3) node[above] {$y$};
+    \draw[draw = red!80!white] (-1,0) &ndash;(1,0) ;
+    \draw[fill, color = red] (1,0) circle [radius = 0.025] node [above = -0.7cm] {-l};
+    \draw[fill, color = red] (1,1) node[right] {$\frac{\partial u}{\partial n} = 0$};
+    % \draw[domain = -1:1,color=red] plot (\x,{sqrt(1-\x<em>\x)})
+    % \draw[fill, color = red] (3,1.5) circle [radius = 0.025]
+    %   node[below = 0.15cm,left = 0.15cm] {$(\xi_1,\xi_2)$};
+\end{tikzpicture}
+\end{center}
+\begin{align</em>}
+    &amp;B_1^* u = u(x,T)\
+    &amp;B_2^* u = u_t(x,T)
+\end{align*}
+Now we have 
+\begin{align}
+    \langle u, Lv \rangle - \langle v, Lu \rangle &amp;= \iint u(x,t)[v_{tt} - v_{xx}]-v[u_{tt}-u_{xx}] dxdt \notag \
+    &amp;= \int <em tt="tt">{-L}^L \int _0^T (uv</em>-vu_{tt}) dtdx - \int_0^T\int_{-L}^L(uv_{xx}-vu_{xx})dxdt \notag \
+    &amp;= \int_{-L}^L [uv_t|<em -L="-L">0^T - \Ccancel[red]{\int _0^T u_tv_tdt} - vu_t|_0^T+ \Ccancel[red]{\int_0^T u_tv_tdt}]-&hellip; \notag \
+    &amp;= \int</em>^L (u v_t- vu_t)|<em -L="-L">0^T dx - \int_0^T (u_xv_x-vu_x)|</em>^L dt\notag \
+    &amp;= \int_{-L}^L \int_0^T \frac{d}{dt}(u v_t- v u_t) dt dx - \int_0^T \int_{-L}^L \frac{d}{dx}(uv_x-vu_x) dx dt\notag \
+    &amp;= \iint_{\Omega} div_{(x,t)} \underbrace{\begin{pmatrix}v u_x - uv_x\ uv_t-vu_t\end{pmatrix}}_{J(u,v)} d (x,t) 
+\end{align}
+\begin{tcolorbox}
+Recall that green&rsquo;s function 
+\begin{align}
+    \langle u,Lv \rangle- \langle v,Lu \rangle = \int Jd \vec\sigma<br />
+    \Sangle{a}
+\end{align}
+Recall the Causal F.S.:
+\begin{equation}
+    E(x,t;\xi,\tau) = \frac{1}{2}H(t - \tau- |x- \xi|)
+\end{equation}
+\end{tcolorbox}</p>
+<p>Adjoint boundary conditions
+\begin{align}
+    M= { u \in C^2 (\Omega) \cap C(\bar\Omega) u(x,0) = 0, u_t(x,0) =0, u_x(-L,t) = u_x(L,t) = 0}
+\end{align}
+Solution formula:
+\begin{itemize}
+    \item u satisfies
+    \begin{equation}
+        u_{xx}-u_{tt} = 0, \quad u(x,0) = f(x), \quad u_t(x,0) =h(x), u_x(\pm L,t) = 0
+    \end{equation}
+    \item v satisfies
+    \begin{equation}
+        v_{xx}-v_{tt} = \delta, \quad v(x,T) =0, \quad v_t(x,T) = 0, \quad v_x(\pm L,t) = 0
+    \end{equation}
+    Also we have 
+    $v = g^<em>$
+\end{itemize}
+So here we have 
+\begin{align}
+    \Sangle{u,Lv} - \Sangle{v,Lu} &amp;= u(\xi) - \int_\Omega g^</em> F \notag \
+    &amp;= \int_{-L}^L u(x,0)g_t^<em>(x,0) - u_t(x,0) g^</em>(x,0) dx 
+\end{align}
+Then 
+\begin{align}
+    u(\xi, \tau) = \int_ \Omega g^<em>(x,t; \xi, \tau ) F(x,t) d(x,t) + \cdots  \label{xtfixed}
+\end{align}
+Fix $\xi$ and $\tau$, For $L$ large enough, at the boundary, the conditions for $\partial u/ \partial n = 0$ automatically satisfies.
+\begin{align}
+    E( \pm L, t; \xi, \tau) &amp;= \frac{1}{2} H(t- \tau - |\pm L - \xi| ) = 0 \qquad \text{ if $L$ large} \label{t-0}\
+    E(x,0;\xi,\tau) &amp;= \frac{1}{2} H(T - \tau- |x- \xi|) = 0 \label{t+0}
+\end{align}
+Equation \eqref{t+0} is always 0 because $\tau&gt;0$. From \eqref{t-0} and \eqref{t+0}, we can conclude [
+    E \in M
+]
+We take 
+\begin{equation}
+    E^</em>(x,t;\xi,\tau) = E(\xi,\tau;x,t)
+\end{equation}
+as $g^<em>$. So that \eqref{xtfixed} can be then expressed as
+\begin{align}
+    u(\xi, \tau) &amp;= \int_ \Omega g^</em>(x,t; \xi, \tau ) F(x,t) d(x,t) + \cdots \notag\
+    &amp;= \iint_\Omega \frac{1}{2} H(\tau - t - |x- \xi|) F(x,t) d(x,t) + \cdots \label{beforextt} \
+    &amp;= \frac{1}{2} \int_0^\tau \int_{\xi-(\tau-t)}^{\xi+(\tau-t)}F(x,t) dxdt \label{afterxtt}
+\end{align}
+From \eqref{beforextt} to \eqref{afterxtt}, it is due to the equation evaluates to 1 only if
+[
+    |x- \xi| &lt;\tau - t
+]</p>
+<p>\section*{}
+Modified greens&rsquo; function
+Non-separapble ODE
+\textbf{Method of Images, Eigenvalue}
+\end{document}</p></article></body></html>
