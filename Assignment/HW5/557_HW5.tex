@@ -1,0 +1,534 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage{geometry}
+\geometry{left = 2.5cm, right = 2.5cm, top = 3cm, bottom = 3cm}
+\usepackage[linesnumbered,ruled,longend]{algorithm2e}
+\usepackage{amsmath}
+\usepackage[makeroom]{cancel}
+\usepackage{amsfonts,amssymb}
+\usepackage{blkarray}
+\usepackage{booktabs}
+\usepackage{dsfont}
+\usepackage{enumerate}
+\usepackage{extarrows}
+\usepackage{epsf}
+\usepackage{fontspec}
+\usepackage{forest}
+\usepackage[colorlinks=true,linkcolor=purple]{hyperref}
+\usepackage{listings}
+\usepackage{mathrsfs}
+\usepackage{microtype}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{tikz}
+%\usepackage{indentfirst}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\newfontfamily\Inputmono{Consolas}
+\renewcommand\thesection{Exercise 5.\ \arabic{section}}%\arabic{section}}
+\renewcommand\thesubsection{\roman{subsection}).}
+\renewcommand\thesubsubsection{\roman{subsection}).\alph{subsubsection}.}
+\newcommand{\qedhere}{$\hfill\ensuremath{\square}$}
+\newcommand{\f}{\frac}
+\newcommand\supp{{\rm supp\ }}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+\newcommand\mycommfont[1]{\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+%\setmainfont{Citadel Script}
+%\setmainfont{Chalkboard}
+\setmainfont{CMU Bright}
+%\setmainfont{Apple Chancery}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\renewcommand{\familydefault}{\sfdefault}
+%\renewcommand{\footnotesize}{\sfdefault}
+\setlength{\parskip}{0.25em}
+\setlength{\parindent}{0em}
+
+%%%%%%%%%%%Configurations for code%%%%%%%%%%%%%%%%%%%%%%%
+\SetKwInOut{Input}{Input}
+\SetKwInOut{Output}{Output}
+\SetKwProg{Fn}{Function}{\string:}{end}
+\SetKwFunction{mstnew}{MST\_New}
+\SetKwFunction{tw}{TreeWeight}
+\SetKwFunction{dps}{DFS}
+\SetKwFunction{con}{Is\_Connected}
+\SetKwFunction{hor}{Three\_Fastest\_Horses}
+%%%%%%%%%%%Here is the configurations for Code%%%%%%%%%%%
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.7,0.7,0.7}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{mywhite}{rgb}{1,1,1}
+\definecolor{myblack}{rgb}{0,0,0}
+\definecolor{myblue}{RGB}{27,154,154}
+\lstset{
+backgroundcolor=\color{white},
+basicstyle = \footnotesize\Inputmono,
+breakatwhitespace = false,
+breaklines = true,
+captionpos = b,
+commentstyle = \color{mygray}\bfseries,
+extendedchars = false,
+frame =shadowbox,
+framerule=0.5pt,
+frameround=tttt,
+keepspaces=true,
+keywordstyle=\color{myblue}\bfseries, % keyword style
+language = Verilog,                     % the language of code
+otherkeywords={string},
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny\color{mymauve},
+rulecolor=\color{black},
+showspaces=false,
+showstringspaces=false,
+showtabs=false,
+stepnumber=0,
+stringstyle=\color{mymauve},        % string literal style
+tabsize=2,
+title=\lstname
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%\setmainfont{Savoye LET}
+%\setmainfont{Cormorant Upright}
+\setmainfont{Cormorant Upright}
+\renewcommand\arraystretch{1.5}
+
+
+\thispagestyle{empty}
+
+\begin{center}
+\begin{large}
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.7\textwidth]{Logo2}
+\end{figure}
+\hrule
+\vspace*{0.25cm}
+\sc{ \Large  UM--SJTU Joint Institute \vspace*{0.3em}} \\
+\Large  VV557 Methods of Applied Math II\\
+\end{large}
+\hrulefill
+
+\vspace*{2cm}
+\begin{Large}
+\sc{{Assignment 5}} \\
+\end{Large}
+\vspace*{2cm}
+\begin{Large}
+\sc{{Group 22}}\\
+\end{Large}
+\vspace*{0.5cm}
+\begin{large}
+\sc{{Sui, Zijian\ \ 515370910038}} \\
+\sc{{Wang, Tianze\ \ 515370910202}} \\
+\sc{{Xu, Yisu \ \ 118370910021}} \\
+\end{large}
+\end{center}
+\newpage
+\setmainfont{Optima}
+\setmonofont{Optima}
+\setsansfont{Optima}
+%\tableofcontents
+%\newpage
+\setcounter{page}{1}
+\normalsize
+\section{}
+$L^*$ is the same as $L$ since $a_1 = a_0 = 0$.
+\[
+    L^* = \frac{d^2}{dx^2}
+\]
+Green's formula thus becomes
+\[
+	\int_0^1 (vLu-uL^*v) = \int_0^1 (vu''-uv'')=v(1)u'(1)-u(1)v'(1)-v(0)u'(0)+u(0)v'(0)    
+\]    
+The set $M$ consists of all functions $u$ s.t.
+\[
+	u(0)=0
+\]
+Apply these constraints, the right hand side simplifies to
+\[
+	v(1)u'(1)-u(1)v'(1)-v(0)u'(0)
+\]
+where $u'(1),u(1),u(0)$ are arbitrary. The adjoint boundary functionals can then be expressed as
+\[
+\left\{
+\begin{array}{c}
+B_1^*v = v(1)=0\\
+B_2^*v = v'(1)=0\\
+B_3^*v = v(0)=0
+\end{array}
+\right.
+\]
+\section{}
+\subsection{}
+$g(x;\xi)$ should satisfy
+\[
+	\left\{
+	\begin{aligned}
+	& L g(x;\xi) = \delta(x-\xi)\\
+	& g(0) = g'''(0) = g(1) = g''(1) = 0\\
+	\end{aligned}
+	\right.
+\]
+The solution is in the form of 
+\[
+	g(x;\xi) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ a x^3 + bx^2+cx+d
+\]		
+where $a,b,c,d$ are real numbers. Plug in the conditions, it will yield to
+\[\left\{
+	\begin{aligned}
+	&u(0) = 0     &\Rightarrow \quad& d = 0\\
+	&u'''(0) = 0  &\Rightarrow \quad&a = 0 \\
+	&u(1) = 0     &\Rightarrow \quad&\frac{(1-\xi)^3}{6}+b+c = 0\\
+	&u''(1) = 0   &\Rightarrow \quad&1-\xi+2b = 0 
+	\end{aligned}
+  \right.
+\]
+So 
+\[
+	g(x;\xi) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ \frac{\xi-1}{2} x^2+\frac{\xi^3-3\xi^2+2}{6}x
+\]
+\subsection{}
+\[
+	L^* = L =  \frac{d^4}{dx^4}
+\]	
+So Greens' formula is
+\[
+	\int vLu-uL^*v = u^{(3)}v - u^{(2)}v' + u'v^{(2)}-uv^{(3)}
+\]
+Plug in the boundaries $0$ and $1$,
+\[\begin{aligned}
+	\int_0^1 vLu-uL^*v =\quad& u^{(3)}(0)v(0) - u^{(2)}(0)v'(0) + u'(0)v^{(2)}(0)-u(0)v^{(3)}(0)\\& - \left(u^{(3)}(1)v(1) - u^{(2)}(1)v'(1) + u'(1)v^{(2)}(1)-u(1)v^{(3)}(1)\right)
+\end{aligned}
+\]
+With boundary conditions 
+\begin{align*}
+B_{1} u=u(0), \quad B_{2} u=u^{\prime \prime \prime}(0), \quad B_{3}=u(1), \quad B_{4}=u^{\prime \prime}(1)
+\end{align*}
+The RHS of green's formula then becomes
+\[
+	- u^{(2)}(0)v'(0) + u'(0)v^{(2)}(0)-u^{(3)}(1)v(1)-u'(1)v^{(2)}(1)
+\]
+which is independent of $u$. So the boundary conditions are 
+\[
+	\left\{
+	\begin{aligned}
+	&B_1^* v = v'(0) = 0\\
+	&B_2^* v = v^{(2)}(0) = 0\\
+	&B_3^* v = v(1) = 0\\
+	&B_4^* v = v^{(2)}(1) = 0\\
+	\end{aligned}
+	\right.
+\]
+With the same strategy, we calculate $v(x) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ a x^3 + bx^2+cx+d$
+\[\left\{
+	\begin{aligned}
+	&v'(0) = 0     &\Rightarrow \quad& c = 0\\
+	&v''(0) = 0  &\Rightarrow \quad&b = 0 \\
+	&v(1) = 0     &\Rightarrow \quad&\frac{(1-\xi)^3}{6}+a+d = 0\\
+	&v''(1) = 0   &\Rightarrow \quad&1-\xi+6a = 0 
+	\end{aligned}
+  \right.
+\]
+So the solution is given as 
+\[
+	g^*(x;\xi) = H(x-\xi) \cdot \frac{(x-\xi)^3}{6}+ \frac{\xi-1}{6} x^3+\frac{\xi^3-3\xi^2+2\xi}{6}
+\]
+\subsection{}
+It is always true for adjoint Green function,
+\[
+	g^*(x,\xi) = g(\xi,x)
+\]
+If we want 
+\[
+	g(x,\xi) = g(\xi,x)
+\]
+This means $g = g^*$. However, from our previous calculation, it's impossible for $g(x,\xi) = g(\xi,x)$, which proves
+\[
+	g \neq g^*
+\]
+\qedhere
+\section{}
+The fully homogeneous adjoint problem is 
+\[\left\{
+	\begin{aligned}
+	& -v''-v = 0 \quad -\pi < x < \pi\\
+	& v(\pi) - v(-\pi) = 0\\
+	& v'(\pi) - v'(-\pi) = 0
+	\end{aligned}
+	\right.
+\]
+which has a non-trivial solution $v(x)=c$ or $v(x)= c\cdot \sin(x)$ or $v(x) = c\cdot \cos(x)$.
+Now that we have 
+\begin{align*}
+	J(u,v)|_{-\pi}^\pi &= -u'v+uv'|_{-\pi}^\pi \\
+	&= -u'(\pi)v(\pi)+u(\pi)v'(\pi)+u'(-\pi)v(-\pi)-u(-\pi)v'(-\pi)\\
+	&= [u(\pi)-u(-\pi)]v'(\pi)-[u'(\pi)-u'(-\pi)]v(\pi)+u(-\pi)v'(\pi)-u'(-\pi)v(\pi)+u'(-\pi)v(-\pi)-u(-\pi)v'(-\pi)\\
+	&= [u(\pi)-u(-\pi)]v'(\pi)-[u'(\pi)-u'(-\pi)]v(\pi) + [v'(\pi)-v'(-\pi)]u(-\pi)+[v(-\pi)-v(\pi)]u'(-\pi)\\
+\end{align*}
+Plug in boundary conditions determined by $u$ and $v$,
+\begin{align*}
+	J(u,v)|_{-\pi}^\pi &=[u(\pi)-u(-\pi)]v'(\pi)-[u'(\pi)-u'(-\pi)]v(\pi) \\
+	&=\gamma_1v'(\pi) - \gamma_2v(\pi)\\
+	&=B_1uB_2^*v -B_2uB_1^*v
+\end{align*}
+For solution $v = c\cdot \sin(x)$,
+\[
+	\int_{-\pi}^\pi f(x) \sin(x) \mathrm{d} x = \gamma_1 \sin'(\pi)- \gamma_2\sin(\pi) = - \gamma_1
+\]
+For solution $v = c\cdot \cos(x)$,
+\[
+	\int_{-\pi}^ \pi f(x) \cos(x) \mathrm{d} x = \gamma_1 \cos'(\pi)- \gamma_2\cos(\pi) = \gamma_2
+\]
+So the conditions are 
+\[
+	\left.
+	\begin{aligned}
+	&\int_{-\pi}^\pi f(x) \sin(x) \mathrm{d} x =- \gamma_1\\
+	&\int_{-\pi}^ \pi f(x) \cos(x) \mathrm{d} x  = \gamma_2
+	\end{aligned}
+	\right.
+\]
+The type of forcing function that can give a periodic solution, i.e.
+\[
+	\left.
+	\begin{aligned}
+	&\int_{-\pi}^\pi f(x) \sin(x) \mathrm{d} x =0\\
+	&\int_{-\pi}^ \pi f(x) \cos(x) \mathrm{d} x = 0
+	\end{aligned}
+	\right.
+\]
+\section{}
+We first find the adjoint problem of the original one.
+\begin{align*}
+	\int_0^1 (u''+\pi^2u)v &= \int_0^1 u''v+\int_0^1 \pi^2uv\\
+	&= u'v-uv'+\int_0^1uv''+\int_0^1 \pi^2uv\\
+	&= u'v-uv'+\int_0^1(v''+\pi^2 v)u
+\end{align*}
+So $L^* =\frac{d^{2}}{d x^{2}}+\pi^{2} $. Analyzing the same equation given above,
+\begin{align*}
+	\int_0^1 vLu-uL^*v dx &= (u'v-uv')|_0^1\\
+	&=u'(1)v(1)-u(1)v'(1)-u'(0)v(0)+u(0)v'(0)\\
+	&=[u'(0)+u'(1)]v(1)-u'(0)v(1)-[u(0)+u(1)]v'(1)+u(0)v'(1) -u'(0)v(0)+u(0)v'(0)\\
+	&=\underbrace{[u'(0)+u'(1)]}_{B_2u}v(1)-\underbrace{[u(0)+u(1)]}_{B_1u}v'(1)-\underbrace{[v(0)+v(1)]}_{B_1^*v}u'(0)+\underbrace{[v'(0)+v'(1)]}_{B_2^* v}u(0)
+\end{align*}
+So the adjoint problem $M^*$ is given as
+\begin{align*}
+	&L^*=\frac{d^{2}}{d x^{2}}+\pi^{2} \\
+	&B_1^* = v(0)+v(1)\\
+	&B_2^* = v'(0)+v'(1)
+\end{align*}
+Solving this equation, it will lead to two orthonormal non-trivial solutions:
+\begin{align*}
+	v_{1} = \sqrt{2} \cdot \cos(\pi x)\\
+	v_{2} = \sqrt{2} \cdot \sin(\pi x)
+\end{align*}
+The fundamental solution $E(x;\xi)$ is calculated at $x=\xi$ with $u(\xi)=0$ and $u'(\xi)=1$, so it is 
+\[
+	E(x;\xi)=H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}
+\]
+Next we find $w_1$ and $w_2$ s.t.
+\begin{align*}
+	w_1''+\pi^2 w_1 = L w_1 = v_1 = \sqrt{2}\cdot \cos(\pi x)\\
+	w_2''+\pi^2 w_2 = L w_2 = v_2 = \sqrt{2}\cdot \sin(\pi x)
+\end{align*}
+Solving by Mathematica with code
+\begin{lstlisting}[language = Mathematica]
+DSolve[y''[x] + \[Pi]^2 y[x] == c*Sin[\[Pi] x], y[x], x]
+DSolve[y''[x] + \[Pi]^2 y[x] == c*Cos[\[Pi] x], y[x], x]
+\end{lstlisting}
+It gives two solutions
+\begin{align*}
+   	w_1 &= \frac{2 \pi  \left(c x+2 \pi  c_2\right) \sin (\pi  x)+\left(c+4
+   	\pi ^2 c_1\right) \cos (\pi  x)}{4 \pi ^2} 
+   	\\&= \frac{-2 \sqrt{2}\pi  x\cos(\pi x)+\sqrt{2}\sin{\pi x}}{4 \pi^2} + c_1 \cos (\pi x) + c_2 \sin (\pi x)\\
+   	&= -\frac{\sqrt{2}x\cos(\pi x)}{2 \pi}+c_1 \cos(\pi x) + c_2' sin(\pi x)\\
+   	w_2 &= \frac{\sqrt{2}\cos(\pi x)+2 \pi \sqrt{2}x \sin(\pi x)}{4 \pi^2}+c_3 \cos (\pi x) + c_4 \sin (\pi x)
+  	\\ &= +\frac{\sqrt{2}x\sin(\pi x)}{2 \pi}+c_3' \cos(\pi x) + c_4 sin(\pi x)\\\\
+\end{align*}
+Here we can set $c_1$ and $c_2$ and $c_3$ and $c_4$ to 0 since we are focusing on non-zero parts, and $\cos(\pi x)$ and $\sin(\pi x)$ will be added to the equation later as a term.
+% \begin{align*}
+% 	g_M(x;\xi) &= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi} - v_1(\xi)w_1(x) - v_2(\xi)w_2(x) +c_1 \cos(\pi x)+c_2 \sin(\pi x) \\
+% 	&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}-c_1\cdot cos(\pi \xi)\cdot \frac{2 \pi c_{1} x \sin (\pi x)+c_1 \cos \pi x}{4 \pi^{2}}\\
+% 	&\quad -c_2\cdot \sin(\pi \xi) \cdot (-\frac{c_2 x}{2\pi}\cos(\pi x)) +c_3 \cos(\pi x) + c_4 \sin(\pi x)\\
+% \end{align*}
+\begin{align*}
+	g_M(x;\xi) &= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi} - v_1(\xi)w_1(x) - v_2(\xi)w_2(x) +c_1 \cos(\pi x)+c_2 \sin(\pi x) \\
+	&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}- \frac{x\sin(\pi x - \pi \xi)}{\pi}+c_1 \cos(\pi x)+ c_2\sin(\pi x)
+\end{align*}
+We need the above equation to satisfy 
+\[
+	B_1g=B_2g= 0
+\]
+, which means 
+\[
+	g(0)+g(1) = 0 \qquad g'(0)+g'(1) = 0-
+\] 
+We plug in the conditions, and we find it automatically satisfies the boundary equations.
+% \[
+% \left\{
+% \begin{aligned}
+% 	&g(1)+g(0) = -\frac{\cos(-\pi \xi)+\cos(\pi(1-\xi))+2\pi \sin(\pi(1-\xi))}{2\pi^2}+ \frac{sin(\pi(1-\xi))}{\pi} \\
+% 	&g'(1)+g'(0)=cos(\pi(1-\xi)) - \frac{2 \pi^2 \cos(\pi(1- \xi))}{2 \pi^2}+2c_2 \pi \cos(\pi x) = 2 c_2 \pi \cos(\pi x)
+% 	\end{aligned}\right.
+% \]	
+So we can conclude
+% \begin{align*}
+% 	g_M(x;\xi)
+% 	&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}+2 \cos(\pi (1- \xi))\cdot  \frac{2 \pi  x \sin (\pi x)+ \cos \pi x}{4 \pi^{2}}\\
+% 	&\quad +{2 \sin(\pi (1- \xi))} \cdot (\frac{ x}{2\pi}\cos(\pi x))  + c \sin(\pi x) \\
+% 	&=H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}+   \frac{\cos(\pi (1- \xi))\cdot(  x \sin (\pi x)+ \cos \pi x)}{ \pi}\\
+% 	&\quad +  \frac{\sin(\pi (1- \xi)) \cdot x}{\pi}\cos(\pi x)  + c \sin(\pi x) \\
+% \end{align*}
+\begin{align*}
+	g_M(x;\xi)&= H(x-\xi)\cdot \frac{\sin \left( \pi (x- \xi) \right)}{\pi}- \frac{x\sin(\pi x - \pi \xi)}{\pi}
+\end{align*}
+\section{}
+\subsection{}
+The nontrivial solutions: $u^{(1)}=1,\ u^{(2)}=x$
+\newpage
+\subsection{}
+We want to show that the problem is self-adjoint, we need to show that $L=L^*$:
+
+
+\begin{align*}
+	J\left(u,v\right){\vert{}}_0^1&=u^{\left(3\right)}\left(1\right)v\left(1\right)-u^{''}\left(1\right)v^{'}\left(1\right)+u^{'}\left(1\right)v^{''}\left(1\right)-u\left(1\right)v^{\left(3\right)}\left(1\right)-u^{\left(3\right)}\left(0\right)v\left(0\right)\\
+&+u^{''}\left(0\right)v^{'}\left(0\right)-u^{'}\left(0\right)v^{''}\left(0\right)+u\left(0\right)v^{\left(3\right)}\left(0\right)
+\end{align*}
+Then it yields to
+\[
+\left\{\begin{array}{l}B_1^*=v^{''}\left(0\right) \\
+B_2^*=v^{\left(3\right)}\left(0\right) \\
+B_3^*=v^{''}\left(1\right) \\
+B_4^*=v^{\left(3\right)}\left(1\right)\end{array}\right.
+\]
+and
+\[
+L=L^*
+\]
+
+So $M=M^*$. So, the problem is self-adjoint.
+\subsection{}
+iii) Constructing the Modified Green Function: and using the orthonormal definition:
+\begin{align}
+	\int_0^1 ax+b=0\\
+	\int_0^1 (ax+b)^2 =1 
+\end{align}
+
+{\raggedright
+
+
+\[
+v^{\left(1\right)}=1,\ v^{\left(2\right)}=2\sqrt{3}(\xi{}-\frac{1}{2})
+\]
+
+are the k non-trivial, orthonormalized solutions of the adjoint problem.
+}
+
+{\raggedright
+Find a fundamental solution $E\left(x,\xi{}\right)$such that
+$LE=\delta{}(x-\xi{})$.
+}
+
+{\raggedright
+
+
+\[
+u_{\xi{}}\left(x\right)=\frac{1}{6}{\left(x-\xi{}\right)}^3
+\]
+
+, so $E\left(x,\xi{}\right)=\frac{1}{6}{H(x-\xi{})\left(x-\xi{}\right)}^3$
+}
+
+{\raggedright
+Find 2 solutions of the inhomogeneous equations Lw=v:
+$w^{\left(1\right)}=\frac{x^4}{24},\
+w^{(2)}=\frac{\sqrt{3}x^5}{60}-\frac{\sqrt{3}x^4}{24}$
+}
+
+{\raggedright
+Find p independent solutions of the homogeneous equation Lu = 0 and add them to
+$E\left(x,\xi{}\right)-\left(v^{\left(1\right)}\left(\xi{}\right)w^{\left(1\right)}\left(x\right)+v^{\left(2\right)}\left(\xi{}\right)w^{\left(2\right)}\left(x\right)\right)\
+$in order to satisfy the boundary conditions $B_1g=…=B_pg=0$.
+}
+
+
+\[
+g_m=\frac{1}{6}{H\left(x-\xi{}\right)\left(x-\xi{}\right)}^3-\frac{x^4}{24}-2\sqrt{3}\left(\xi{}-\frac{1}{2}\right)\left(\frac{\sqrt{3}x^5}{60}-\frac{\sqrt{3}x^4}{24}\right)+{ax}^3+{bx}^2+cx+d
+\]
+
+
+{\raggedright
+
+
+\[
+\left\{\begin{array}{l}B_1g_m=0 \\
+B_2g_m=0 \\
+B_3g_m=0 \\
+B_4g_m=0\end{array}\right.
+\]
+
+=$>$ $\left\{\begin{array}{l}a=0 \\
+b=0 \\
+c\ is\ arbitrary \\
+d\ is\ arbitrary\end{array}\right.$
+}
+
+{\raggedright
+So,
+$g_m=\frac{1}{6}{H\left(x-\xi{}\right)\left(x-\xi{}\right)}^3-\frac{x^4}{24}-\left(2\xi{}-1\right)\left(\frac{x^5}{20}-\frac{x^4}{8}\right)$.
+}
+\subsection{}
+
+{\raggedright
+We know that $u=\int_0^1g_m\left(x,\xi{}\right)f\left(\xi{}\right)d\xi{}$
+}
+
+{\raggedright
+
+
+\[
+u^{(4)}=f
+\]
+
+, where f satisfies the solvability conditions:
+}
+
+{\raggedright
+
+
+\[
+\left\{\begin{array}{l}\int_0^1f\left(\xi{}\right)v^{(1)}d\xi{}=0 \\
+\int_0^1f\left(\xi{}\right)v^{(2)}d\xi{}=0\end{array}\right.
+\]
+
+=$>$$\left\{\begin{array}{l}\int_0^1f\left(\xi{}\right)d\xi{}=0 \\
+\int_0^1f\left(\xi{}\right)2\sqrt{3}(\xi{}-\frac{1}{2})d\xi{}=0\end{array}\right.$
+}
+
+{\raggedright
+So,
+$u=\int_0^1(\frac{1}{6}{H\left(x-\xi{}\right)\left(x-\xi{}\right)}^3-\frac{x^4}{24}-\left(2\xi{}-1\right)\left(\frac{x^5}{20}-\frac{x^4}{8}\right))f\left(\xi{}\right)d\xi{}=\int_0^x\frac{1}{6}{\left(x-\xi{}\right)}^3f\left(\xi{}\right)d\xi{}$
+}
+\end{document}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

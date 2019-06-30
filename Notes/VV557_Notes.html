@@ -1080,8 +1080,9 @@ body .markdown-body
 \usepackage{multirow}
 \usepackage{setspace}
 \usepackage{tikz}
-\usepackage{xcolor}</p>
-<p>\newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+\usepackage{xcolor}
+\tcbuselibrary{skins}
+\newcommand\Ccancel[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
 \newcommand{\Sangle}[1]{\langle {#1} \rangle}
 %\usepackage{indentfirst}
 %\usepackage[usenames,dvipsnames]{xcolor}
@@ -1196,6 +1197,10 @@ Page Left blank because I want to.
 %\newpage
 \setcounter{page}{1}
 \normalsize
+\section{Distribution}
+\begin{center}
+\Huge \mathcal{D}(\mathbb{R})
+\end{center}
 \section{Boundary Value Problems of Higher order $p$}
 \begin{tcolorbox}[colback=blue!10!white]
 An example problem:
@@ -1204,13 +1209,34 @@ An example problem:
 \end{align}
 where $b_2,b_1,b_0$ are functions of $x$.
 \end{tcolorbox}
-We first calculate conjunction and $L^<em>$.
+We first calculate conjunction and $L^<em>$. Apply integral chain rule,
 \begin{align}
     \int v L u &amp;= \int v[(b_2 u&rsquo;&lsquo;)&rsquo;&lsquo;+(b_1 u&rsquo;)&rsquo;+ b_0]\notag\
     \int v(b_2u&rsquo;&lsquo;)&rsquo;&lsquo; &amp;= v(b_2 u&rsquo;&lsquo;)&rsquo;-\int v&rsquo;(b_2u&rsquo;&lsquo;)&rsquo;\notag \
     &amp;=v(b_2 u&rsquo;&lsquo;)&rsquo;-v&rsquo;(b_2u&rsquo;&lsquo;) +\int v&rsquo;&lsquo;b_2u&rsquo;&lsquo; \notag\
-    &amp;= v(b_2 u&rsquo;&lsquo;)&rsquo;-v&rsquo;(b_2u&rsquo;&lsquo;)+u&rsquo;v&rsquo;&lsquo;b_2-u(v&rsquo;&lsquo;b)&rsquo; +\int(v&rsquo;&lsquo;b_2)&rsquo;&lsquo;y<br />
+    &amp;= v(b_2 u&rsquo;&lsquo;)&rsquo;-v&rsquo;(b_2u&rsquo;&lsquo;)+u&rsquo;v&rsquo;&lsquo;b_2-u(v&rsquo;&lsquo;b)&rsquo; +\int(v&rsquo;&lsquo;b_2)&rsquo;&lsquo;y \label{conjunu&rsquo;&lsquo;} \
+    \int v(b_1 u&rsquo;)&rsquo; &amp;= v(b_1u&rsquo;)-\int v&rsquo;(b_1u&rsquo;)\notag \
+    &amp;=v(b_1u&rsquo;)-ub_1v&rsquo;+ \int u(b_1v&rsquo;)&rsquo;&lsquo; \label{conjunu&rsquo;}
 \end{align}
+We synthesis \eqref{conjunu&rsquo;&lsquo;} and \eqref{conjunu&rsquo;}, which yields to 
+\begin{align}
+    L^</em> = L
+\end{align}
+and 
+\begin{align}
+    J(u,v) = v(b_2 u&rsquo;&lsquo;)&rsquo;-v&rsquo;(b_2u&rsquo;&lsquo;)+u&rsquo;v&rsquo;&lsquo;b_2-u(v&rsquo;&lsquo;b)&rsquo;+v(b_1u&rsquo;)-ub_1v&rsquo;|<em _Omega="\Omega">a^b
+\end{align}
+\begin{tcolorbox}[colback=red!5!white, boxrule = 0.1pt]
+Two cases to be considered as self adjoint.
+\begin{itemize}
+    \item $u(a),u&rsquo;&lsquo;(a),u(b),u&rsquo;&lsquo;(b)=0$ 
+    \item $u(a),u&rsquo;(a),u(b),u&rsquo;(b)=0$
+\end{itemize}
+However, if three conditions for $a$ and one condition for $b$, not self-adjoint. \textit{This could be easily verified as plug in the conditions and see what need to happen to make conjunction to be 0 for $v$.}
+\end{tcolorbox}
+\section{Solvability Conditions}
+Solve \begin{align} L u &amp;=\delta(x-\xi)-v^{(1)}(\xi) v^{(1)}(x)-\cdots-v^{(k)}(\xi) v^{(k)}(x) \ &amp;=: f(x) \end{align}
+instead of originally $L u  = \delta(x- \xi)$
 \section{Partial Boundary Value Problems General Notes}
 \subsection{Basic Quantities}
 \begin{tcolorbox}[colback=blue!10!white]
@@ -1222,7 +1248,7 @@ We first calculate conjunction and $L^<em>$.
 \begin{tcolorbox}[colback=green!10!white]
 Green&rsquo;s Formula is given as
 \begin{equation}
-    \int_{\Omega}(v L u-u L v) d x = \int_{\partial \Omega} p\left(u \frac{\partial v}{\partial n}-v \frac{\partial u}{\partial n}\right) d \sigma
+    \int</em>(v L u-u L v) d x = \int_{\partial \Omega} p\left(u \frac{\partial v}{\partial n}-v \frac{\partial u}{\partial n}\right) d \sigma
 \end{equation}
 \end{tcolorbox}
 The steps are: According to divergence delta rule
@@ -1237,7 +1263,7 @@ where as $f = p$ and $\vec v = p \nabla u$
 \section{PP 330}
 To calculate a surface integral in $\mathbb{R}^n$ of $S\subset \mathbb{R}^n$ is a hypersurface.
 \subsection{Step 1: Find parametrization $\gamma$}
-\begin{align</em>}
+\begin{align<em>}
     \gamma :[a_1,b_1]\times &hellip; \times [a_{n+1},b_{n+1}] \rightarrow S \subset \mathbb{R}^n \
     \gamma: (s_1,&hellip;,s_{n+1}) \mapsto \begin{pmatrix}
     \gamma_1(s_1,&hellip;s_{n+1})\
@@ -1246,7 +1272,7 @@ To calculate a surface integral in $\mathbb{R}^n$ of $S\subset \mathbb{R}^n$ is 
     \vdots \
     \gamma_{n+1}(s_1,&hellip;s_{n+1})\
     \end{pmatrix} 
-\end{align*}</p>
+\end{align</em>}</p>
 <p>\begin{tcolorbox}[colback=blue!20!white]
 A simple example is given as
 \begin{align<em>}
@@ -1615,9 +1641,48 @@ as $g^<em>$. So that \eqref{xtfixed} can be then expressed as
 From \eqref{beforextt} to \eqref{afterxtt}, it is due to the equation evaluates to 1 only if
 [
     |x- \xi| &lt;\tau - t
-]</p>
-<p>\section*{}
+]
+\section{Adjoint and direct boundary conditions for PDE}
+Direct Boundary conditions
+\begin{align}
+    M = {u \in C^2 (V): Bu = \tilde{B}<em M="M">1u=0}
+\end{align}
+Here
+\begin{align}
+    &amp;Bu = \gamma(x,t) \quad (x,t) \in \partial \Omega\times (0,\infty)\
+    &amp;\tilde{B}_1u = u(x,0) = f(x)
+\end{align}
+Adjoint Boundary condition
+\begin{align}
+    M^* = {v\in C^2(V),B^<em>v = \tilde{B}^</em>_1 v = 0}
+\end{align}
+where 
+\begin{align}
+    &amp;B^<em>v = Bv\
+    &amp;\tilde{B}_1^</em>v = v(x,T)
+\end{align}
+\section<em>{}
 Modified greens&rsquo; function
 Non-separapble ODE
 \textbf{Method of Images, Eigenvalue}
+\section{How to solve these fucking problems in Chpter 4}
+\subsection{Solvability}
+\begin{enumerate}
+\item Find adjoint problem: For adjoint problem, it has the same \textbf{trivial or non-trivial} solution as the original problem.
+\item check $\int fv = 0$.
+\item If $\int fv = 0$, it means that the function is solvable. Otherwise, it&rsquo;s not solvable.
+\item Then we need to use modified green function.
+\begin{align}
+\begin{aligned} \operatorname{Lg}<em i="1">{M}(x, \xi) &amp;=\delta(x-\xi)-\sum</em>^{k} v^{(i)}(\xi) v^{(i)}(x) \ B_{1} g_{M} &amp;=0 \ \vdots &amp; \ B_{p} g_{M} &amp;=0 \end{aligned}
+\end{align}
+Note here $v$ is orthonormal solution.
+\item The modified adjoint green function is 
+\begin{align}
+\begin{aligned} L^{</em>} g</em>^{<em>}(x, \xi) &amp;=\delta(x-\xi)-\sum_{i=1}^{k} u^{(i)}(\xi) u^{(i)}(x) \ B_{1}^{</em>} g_{M}^{<em>} &amp;=0 \ \vdots &amp; \ B_{p}^{</em>} g_{M}^{*} &amp;=0 \end{aligned}
+\end{align}
+\item Then the final solution is given as
+\begin{align}
+u(x)=\int_{a}^{b} g_{M}(x, \xi) f(\xi) d \xi+\sum_{i=1}^{k} c_{i} u^{(i)}(x)
+\end{align}
+\end{enumerate}
 \end{document}</p></article></body></html>
